@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
+import "./Skills.css";
 
 const Skills = () => {
   return (
-    <section id="skills" className="skills section">
+    <section className="skills" id="skills">
       <div className="container">
-        <h2 className="section-title">Skills</h2>
-        <ul className="skills-list">
+        <h2>Skills</h2>
+        <ul>
           <li>ASP.NET Core</li>
           <li>SQL Server</li>
-          <li>JavaScript</li>
+          <li>JavaScript (React, Node.js)</li>
           <li>Power BI</li>
-          <li>C#</li>
-          <li>React</li>
-          <li>Blazor</li>
-          <li>Razor Pages</li>
+          <li>System Design</li>
         </ul>
       </div>
     </section>

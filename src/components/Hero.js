@@ -1,5 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
+import './Hero.css';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -83,6 +83,12 @@ const Hero = () => {
       <div className="hero-content">
         <h1>Hi, I'm Sakthi</h1>
         <p>Full Stack Developer | System Analyst | .NET Expert</p>
+      </div>
+
+      <div className="container">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Building meaningful and impactful solutions with a focus on performance and clean code.</p>
+        <button className="cta-button">Get in Touch</button>
       </div>
     </section>
   );

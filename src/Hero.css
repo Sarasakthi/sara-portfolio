@@ -23,3 +23,23 @@
   position: relative;
   z-index: 1;
 }
+
+.hero {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero .cta-button {
+  background-color: #fff;
+  color: #4CAF50;
+  padding: 15px 30px;
+  border: none;
+  font-size: 1.2rem;
+}
