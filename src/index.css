@@ -4,17 +4,41 @@ body,
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Disable text selection */
+body,
+.your-container {
+  user-select: none; /* Prevents selecting text */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+
+body {
   font-family: "Poppins", sans-serif;
+}
+
+main {
+  flex: 1;
 }
 
 html {
   scroll-behavior: smooth;
 }
-
 #root {
-  height: 100%;
-  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background: #0d1117;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 .container {
@@ -46,5 +70,3 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
-
-/* Other specific styles for each component */

@@ -13,20 +13,28 @@ const Navbar = () => {
     <nav className="navbar no-animation">
       <div className="navbar-content">
         <div className="logo">
-          <Link to="/">Sara</Link>
+          <Link
+            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = process.env.PUBLIC_URL || "/";
+            }}
+          >
+            Sara
+          </Link>
         </div>
         <ul className={`nav-links ${isMobile ? "mobile" : ""}`}>
           <li>
-            <Link to="/AboutSara">About</Link>
+            <a href="#about">About</a>
           </li>
           <li>
-            <Link to="/SaraProjects">Projects</Link>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <Link to="/SaraSkills">Skills</Link>
+            <a href="#skills">Skills</a>
           </li>
           <li>
-            <Link to="/ContactSara">Contact</Link>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
         <button className="hamburger" onClick={toggleMobileMenu}>

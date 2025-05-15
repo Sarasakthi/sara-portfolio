@@ -1,4 +1,4 @@
-/* Full-screen section with background and centered layout */
+/* Full-screen section */
 .hero-section {
   position: relative;
   height: 100vh;
@@ -6,21 +6,13 @@
   background: #0d1117;
   color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
   padding: 0 20px;
   text-align: center;
 }
 
-/* Wrapper to stack hero and container content vertically */
-.hero-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px; /* spacing between hero and container */
-}
-
-/* Centered background canvas */
+/* Background canvas */
 .connecting-dots {
   position: absolute;
   top: 0;
@@ -30,79 +22,102 @@
   height: 100%;
 }
 
-/* Row layout for image + text */
+/* Hero layout */
+.hero-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 2rem;
+}
+
+/* Horizontal row: image + text */
 .hero-content.hero-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1000px;
-  position: relative;
+  width: 100%; /* Limit width to 60% on large screens */
   z-index: 1;
-  animation: zoomFadeIn 1.2s ease-out forwards;
-  opacity: 0;
-  transform: scale(0.8);
 }
 
-/* Bear image styles */
-.welcome-bear {
+/* Bear image */
+.hot-air-bear {
   width: 250px;
-  max-width: 80vw;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  animation: fadeInPic 1.2s ease-out forwards;
+  max-width: 100%;
   opacity: 0;
+  transform: translateY(-300px);
+  animation: dropIn 1.2s ease-out forwards;
+  animation-delay: 1.6s;
+  align-self: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-/* Text block beside the bear */
-.hero-text {
-  max-width: 450px;
+.hot-air-bear:hover,
+.hot-air-bear:focus {
+  transform: translateY(0) scale(1.05); /* keep drop-in + scale */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.hot-air-bear:focus-visible {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
+}
+
+/* Text group beside bear */
+.hero-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem; /* 👈 spacing between intro and container */
   text-align: left;
-  animation: zoomFadeIn 1.2s ease-out forwards;
-  animation-delay: 0.2s;
-  opacity: 0;
-  transform: scale(0.95);
 }
 
-/* Hero headline */
+/* Hero intro text */
+.hero-text {
+  max-width: 600px;
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 1.3s;
+}
+
 .hero-text h1 {
   font-size: 3.5rem;
   margin-bottom: 10px;
 }
 
-/* Hero subtitle */
 .hero-text p {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
-/* Container that appears after intro */
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin-top: 20px;
+/* Welcome container */
+.hero-container {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 600px;
   opacity: 0;
   transform: translateY(30px);
   animation: slideUp 1.2s ease-out forwards;
-  animation-delay: 1.3s;
+  animation-delay: 1.8s;
 }
 
-/* Secondary heading */
-.container h1 {
+.hero-container h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
-/* Supporting text */
-.container p {
+.hero-container p {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-/* CTA Button */
+/* Button */
 .cta-button {
   background-color: #4caf50;
   color: white;
@@ -111,39 +126,61 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus {
   background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(69, 160, 73, 0.6);
+  outline: none; /* We'll handle focus style below */
 }
 
-.welcome-bear {
-  max-width: 250px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.cta-button:focus-visible {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
 }
 
-.welcome-bear:hover {
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+.section {
+  padding: 80px 20px;
+  background: #161b22;
+  color: #ffffff;
+  text-align: center;
+  border-top: 1px solid #2d333b;
 }
 
-.welcome-bear {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+.section:nth-child(even) {
+  background: #0d1117;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Animations */
-@keyframes zoomFadeIn {
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dropIn {
   0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: translateY(-300px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -158,25 +195,35 @@
   }
 }
 
-@keyframes fadeInPic {
-  0% {
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Responsive adjustments for smaller screens */
+/* Responsive */
 @media (max-width: 768px) {
   .hero-content.hero-row {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+  }
+
+  .hero-text-group {
+    align-items: center;
     text-align: center;
   }
 
-  .hero-text {
+  .hero-text,
+  .container {
     text-align: center;
+    align-items: center;
   }
+
+  .hot-air-bear {
+    align-self: center;
+  }
+}
+
+/* Disable text selection on the whole hero section */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
