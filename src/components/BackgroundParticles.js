@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import "./BackgroundParticles.css";
 
 const BackgroundParticles = () => {
   const canvasRef = useRef(null);
@@ -7,132 +8,118 @@ const BackgroundParticles = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Update canvas size on window resize
+    let particlesArray = [];
+    const numberOfParticles = 100;
+
+    // Mouse tracker
+    const handleMouseMove = (event) => {
+      mouse.current.x = event.clientX;
+      mouse.current.y = event.clientY;
+    };
+
+    const handleClick = () => {
+      for (let i = 0; i < 5; i++) {
+        particlesArray.push(new Particle());
+      }
+    };
+
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
-    window.addEventListener("resize", handleResize);
 
-    // Track mouse movement
-    const handleMouseMove = (e) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
-      Debug: console.log(
-        `Mouse Position: (${mouse.current.x}, ${mouse.current.y})`
-      );
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-
-    // Particle class
     class Particle {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.radius = 2;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.size = 2;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
       }
 
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0 || this.x > width) this.speedX = -this.speedX;
-        if (this.y < 0 || this.y > height) this.speedY = -this.speedY;
+        // Bounce off edges
+        if (this.x <= 0 || this.x >= width) this.speedX *= -1;
+        if (this.y <= 0 || this.y >= height) this.speedY *= -1;
       }
 
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
         ctx.fill();
       }
     }
 
-    const particlesArray = [];
-    const numParticles = 100;
-
-    for (let i = 0; i < numParticles; i++) {
-      particlesArray.push(new Particle());
-    }
-
-    const maxDistance = 120;
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw and update particles
-      particlesArray.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
-
-      // Draw lines between particles if close
-      for (let i = 0; i < numParticles; i++) {
-        for (let j = i + 1; j < numParticles; j++) {
-          let dx = particlesArray[i].x - particlesArray[j].x;
-          let dy = particlesArray[i].y - particlesArray[j].y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < maxDistance) {
-            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / maxDistance})`;
-            ctx.lineWidth = 1;
+    function connectParticles() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a + 1; b < particlesArray.length; b++) {
+          const dx = particlesArray[a].x - particlesArray[b].x;
+          const dy = particlesArray[a].y - particlesArray[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 100) {
             ctx.beginPath();
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+            ctx.lineWidth = 1;
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
             ctx.stroke();
           }
         }
-      }
 
-      // Draw lines between mouse and particles if close
-      if (mouse.current.x !== null && mouse.current.y !== null) {
-        Debug: console.log(
-          `Drawing lines from mouse to particles at (${mouse.current.x}, ${mouse.current.y})`
-        );
-        particlesArray.forEach((particle) => {
-          let dx = particle.x - mouse.current.x;
-          let dy = particle.y - mouse.current.y;
-          let dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < maxDistance) {
-            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / maxDistance})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(mouse.current.x, mouse.current.y);
-            ctx.stroke();
-          }
-        });
+        // Connect to mouse
+        const dx = particlesArray[a].x - mouse.current.x;
+        const dy = particlesArray[a].y - mouse.current.y;
+        const distanceToMouse = Math.sqrt(dx * dx + dy * dy);
+        if (distanceToMouse < 120) {
+          ctx.beginPath();
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+          ctx.lineWidth = 1;
+          ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+          ctx.lineTo(mouse.current.x, mouse.current.y);
+          ctx.stroke();
+        }
       }
+    }
 
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particlesArray.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      connectParticles();
       requestAnimationFrame(animate);
     }
 
+    initParticles();
     animate();
 
-    // Cleanup listeners on unmount
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("click", handleClick);
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("click", handleClick);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: -1,
-        backgroundColor: "#000",
-      }}
-    />
-  );
+  return <canvas ref={canvasRef} className="background-canvas" />;
 };
 
 export default BackgroundParticles;

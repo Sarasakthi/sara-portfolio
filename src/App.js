@@ -5,10 +5,12 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+import BackgroundParticles from "./components/BackgroundParticles";
 
-const App = () => {
+function App() {
   return (
     <div className="App">
+      <BackgroundParticles />
       <Navbar />
       <Hero />
       <About />
@@ -17,6 +19,6 @@ const App = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default App;
