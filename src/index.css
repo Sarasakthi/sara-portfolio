@@ -8,6 +8,10 @@ body,
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   height: 100%;
   position: relative;

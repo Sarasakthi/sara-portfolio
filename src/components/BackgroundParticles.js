@@ -13,16 +13,25 @@ const BackgroundParticles = () => {
     canvas.style.position = "fixed";
     canvas.style.top = 0;
     canvas.style.left = 0;
-    canvas.style.zIndex = "1";
+    canvas.style.zIndex = "100";
     canvas.style.pointerEvents = "none";
     canvas.style.opacity = 0.25;
+    canvas.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    canvas.style.transition = "opacity 1.5s ease-in-out";
+    canvas.style.willChange = "opacity";
+    canvas.style.filter = "blur(2px)";
+    canvas.style.backdropFilter = "blur(5px)";
+    canvas.style.webkitBackdropFilter = "blur(5px)";
+    canvas.style.borderRadius = "10px";
+    canvas.style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.5)";
+    canvas.style.border = "1px solid rgba(255, 255, 255, 0.1)";
 
     let particlesArray = [];
     const numberOfParticles = 100;
 
     const handleMouseMove = (event) => {
-      mouse.current.x = event.clientX;
-      mouse.current.y = event.clientY;
+      mouse.current.x = event.clientX + window.scrollX;
+      mouse.current.y = event.clientY + window.scrollY;
     };
 
     const handleClick = () => {
