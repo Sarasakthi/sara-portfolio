@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import './Hero.css';
+import React, { useEffect, useRef } from "react";
+import "./Hero.css";
 
 const Hero = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -21,7 +21,7 @@ const Hero = () => {
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 1,
           vy: (Math.random() - 0.5) * 1,
-          radius: 2
+          radius: 2,
         });
       }
     };
@@ -33,7 +33,7 @@ const Hero = () => {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 100) {
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -46,7 +46,7 @@ const Hero = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach(p => {
+      particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
 
@@ -55,7 +55,7 @@ const Hero = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = "white";
         ctx.fill();
       });
 
@@ -73,8 +73,8 @@ const Hero = () => {
       init();
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -87,7 +87,10 @@ const Hero = () => {
 
       <div className="container">
         <h1>Welcome to My Portfolio</h1>
-        <p>Building meaningful and impactful solutions with a focus on performance and clean code.</p>
+        <p>
+          Building meaningful and impactful solutions with a focus on
+          performance and clean code.
+        </p>
         <button className="cta-button">Get in Touch</button>
       </div>
     </section>

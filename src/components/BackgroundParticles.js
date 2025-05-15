@@ -10,11 +10,16 @@ const BackgroundParticles = () => {
     const ctx = canvas.getContext("2d");
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
+    canvas.style.position = "fixed";
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    canvas.style.zIndex = "1";
+    canvas.style.pointerEvents = "none";
+    canvas.style.opacity = 0.25;
 
     let particlesArray = [];
     const numberOfParticles = 100;
 
-    // Mouse tracker
     const handleMouseMove = (event) => {
       mouse.current.x = event.clientX;
       mouse.current.y = event.clientY;
@@ -43,8 +48,6 @@ const BackgroundParticles = () => {
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-
-        // Bounce off edges
         if (this.x <= 0 || this.x >= width) this.speedX *= -1;
         if (this.y <= 0 || this.y >= height) this.speedY *= -1;
       }
@@ -74,16 +77,18 @@ const BackgroundParticles = () => {
         }
 
         // Connect to mouse
-        const dx = particlesArray[a].x - mouse.current.x;
-        const dy = particlesArray[a].y - mouse.current.y;
-        const distanceToMouse = Math.sqrt(dx * dx + dy * dy);
-        if (distanceToMouse < 120) {
-          ctx.beginPath();
-          ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
-          ctx.lineWidth = 1;
-          ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-          ctx.lineTo(mouse.current.x, mouse.current.y);
-          ctx.stroke();
+        if (mouse.current.x !== null && mouse.current.y !== null) {
+          const dx = particlesArray[a].x - mouse.current.x;
+          const dy = particlesArray[a].y - mouse.current.y;
+          const distanceToMouse = Math.sqrt(dx * dx + dy * dy);
+          if (distanceToMouse < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+            ctx.lineWidth = 1;
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(mouse.current.x, mouse.current.y);
+            ctx.stroke();
+          }
         }
       }
     }
