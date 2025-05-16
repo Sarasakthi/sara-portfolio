@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="navbar no-animation">
       <div className="navbar-content">
-        <div className="logo">
+        <div className="logo-nav">
           <Link
             to="/"
             onClick={(e) => {

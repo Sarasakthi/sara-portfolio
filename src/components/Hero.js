@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import HotAirBear from "../assets/images/beardrop-nobg.png";
 
 const Hero = () => {
   const canvasRef = useRef(null);
+  const [rotate, setRotate] = useState(false);
+
+  const toggleRotation = () => {
+    setRotate((prev) => !prev);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -34,7 +39,7 @@ const Hero = () => {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 100) {
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+            ctx.strokeStyle = "rgba(0, 0, 0, 0.1)";
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -56,7 +61,7 @@ const Hero = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
         ctx.fill();
       });
 
@@ -93,7 +98,7 @@ const Hero = () => {
             <div className="hero-text-group">
               <div className="hero-text">
                 <h1>Hi, I'm Sara</h1>
-                <p>Full Stack Developer | System Analyst | .NET Expert</p>
+                <p>Full Stack Developer | System Analyst | Software Engineer</p>
               </div>
 
               <div className="hero-container">
@@ -103,7 +108,14 @@ const Hero = () => {
                   performance and clean code.
                 </p>
                 <br />
-                <button className="cta-button">View My Resume</button>
+                <a
+                  href={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button"
+                >
+                  View My Resume
+                </a>
               </div>
             </div>
           </div>

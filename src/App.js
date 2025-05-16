@@ -17,10 +17,6 @@ function App() {
       <Navbar />
       <main style={{ flex: 1 }}>
         <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
       </main>
       <Footer />
     </>

@@ -8,50 +8,40 @@ const BackgroundParticles = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+
+    // Full screen canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let width = canvas.width;
+    let height = canvas.height;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      width = canvas.width;
+      height = canvas.height;
+      initParticles();
+    };
+
+    window.addEventListener("resize", resizeCanvas);
+
     canvas.style.position = "fixed";
-    canvas.style.top = 0;
-    canvas.style.left = 0;
-    canvas.style.zIndex = "100";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.zIndex = "0";
     canvas.style.pointerEvents = "none";
-    canvas.style.opacity = 0.25;
-    canvas.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    canvas.style.transition = "opacity 1.5s ease-in-out";
-    canvas.style.willChange = "opacity";
-    canvas.style.filter = "blur(2px)";
-    canvas.style.backdropFilter = "blur(5px)";
-    canvas.style.webkitBackdropFilter = "blur(5px)";
-    canvas.style.borderRadius = "10px";
-    canvas.style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.5)";
-    canvas.style.border = "1px solid rgba(255, 255, 255, 0.1)";
 
     let particlesArray = [];
     const numberOfParticles = 100;
-
-    const handleMouseMove = (event) => {
-      mouse.current.x = event.clientX + window.scrollX;
-      mouse.current.y = event.clientY + window.scrollY;
-    };
-
-    const handleClick = () => {
-      for (let i = 0; i < 5; i++) {
-        particlesArray.push(new Particle());
-      }
-    };
-
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
 
     class Particle {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
         this.size = 2;
-        this.speedX = Math.random() * 2 - 1;
-        this.speedY = Math.random() * 2 - 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
       }
 
       update() {
@@ -64,7 +54,7 @@ const BackgroundParticles = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "#333"; // Dark particle for light background
         ctx.fill();
       }
     }
@@ -77,39 +67,24 @@ const BackgroundParticles = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
           if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+            ctx.strokeStyle = "rgba(0, 0, 0, 0.1)";
             ctx.lineWidth = 1;
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
             ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
             ctx.stroke();
           }
         }
-
-        // Connect to mouse
-        if (mouse.current.x !== null && mouse.current.y !== null) {
-          const dx = particlesArray[a].x - mouse.current.x;
-          const dy = particlesArray[a].y - mouse.current.y;
-          const distanceToMouse = Math.sqrt(dx * dx + dy * dy);
-          if (distanceToMouse < 120) {
-            ctx.beginPath();
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
-            ctx.lineWidth = 1;
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(mouse.current.x, mouse.current.y);
-            ctx.stroke();
-          }
-        }
       }
     }
 
-    function initParticles() {
+    const initParticles = () => {
       particlesArray = [];
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
-    }
+    };
 
-    function animate() {
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
       particlesArray.forEach((p) => {
         p.update();
@@ -117,19 +92,13 @@ const BackgroundParticles = () => {
       });
       connectParticles();
       requestAnimationFrame(animate);
-    }
+    };
 
     initParticles();
     animate();
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("click", handleClick);
-    window.addEventListener("resize", handleResize);
-
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("click", handleClick);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 

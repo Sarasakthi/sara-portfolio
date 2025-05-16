@@ -1,12 +1,12 @@
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: center; /* center the navbar content */
+  justify-content: center;
   padding: 10px 0;
   position: fixed;
   top: 0;
   z-index: 1000;
-  background: #53585e;
+  background: #202020;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -23,9 +23,9 @@
 }
 
 /* Align logo to the left */
-.logo a {
+.logo-nav a {
   font-size: 1.8rem;
-  color: white;
+  color: #f5f5f5;
   text-decoration: none;
   font-weight: bold;
 }
@@ -38,7 +38,7 @@
 }
 
 .nav-links li a {
-  color: white;
+  color: #f5f5f5;
   text-decoration: none;
   font-size: 1.1rem;
 }
