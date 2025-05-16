@@ -1,15 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import HotAirBear from "../assets/images/beardrop-nobg.png";
+import AboutProfile from "../assets/images/sara/saraProfile.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
-  const [rotate, setRotate] = useState(false);
+  const aboutRef = useRef(null);
+  const [animateHeader, setAnimateHeader] = useState(false);
 
-  const toggleRotation = () => {
-    setRotate((prev) => !prev);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Toggle animation class based on intersection
+        setAnimateHeader(entry.isIntersecting);
+      },
+      {
+        root: null, // viewport
+        threshold: 0,
+        rootMargin: "-35% 0px -65% 0px", // Trigger when #about crosses center of viewport
+      }
+    );
 
+    const current = aboutRef.current;
+    if (current) observer.observe(current);
+
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
+
+  // Particle animation setup
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -84,6 +104,7 @@ const Hero = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <section id="hero" className="hero-section">
         <canvas ref={canvasRef} className="connecting-dots" />
 
@@ -98,7 +119,9 @@ const Hero = () => {
             <div className="hero-text-group">
               <div className="hero-text">
                 <h1>Hi, I'm Sara</h1>
-                <p>Full Stack Developer | System Analyst | Software Engineer</p>
+                <div className="typewriter">
+                  <p>Full Stack Developer | Software Engineer</p>
+                </div>
               </div>
 
               <div className="hero-container">
@@ -122,25 +145,138 @@ const Hero = () => {
         </div>
       </section>
 
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I'm a passionate developer with experience in full-stack development,
-          systems analysis, and more.
-        </p>
+      {/* About Section */}
+      <section id="about" className="sections" ref={aboutRef}>
+        <div className="about-inner">
+          <h2 id="about-header" className={animateHeader ? "animate" : ""}>
+            About Me
+          </h2>
+          <div className="about-content">
+            <img
+              className="about-profile"
+              src={AboutProfile}
+              alt="saraswathi-sakthikumar"
+            />
+            <div className="about-text">
+              <p>
+                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
+                based in the Edmonton area. I’m passionate about building
+                forward-thinking software and web applications that empower
+                engineers and drive innovation.
+              </p>
+              <p>
+                With solid experience in Web Development and Database
+                Management, I thrive on solving complex problems and learning
+                new technologies. I’m a quick learner, a strong team
+                collaborator, and deeply believe in the power of technology to
+                make a meaningful impact.
+              </p>
+              <p>
+                Driven by a commitment to lifelong learning, I specialize in the
+                .NET framework, JavaScript, and React. For me, web development
+                is the perfect blend of creativity, logic, and endless
+                opportunities to explore something new—and that’s what keeps me
+                inspired every day.
+              </p>
+              <p>
+                When I’m not coding, you’ll likely find me reading, staying
+                active, or enjoying quality time with my kids. My curiosity and
+                passion for continuous improvement fuel my drive to stay at the
+                forefront of the ever-evolving tech landscape.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        <p>Here are some projects I've worked on...</p>
+      {/* Skills Section */}
+      <section id="skills" className="sections">
+        <div className="skills-inner">
+          <h2>Skills</h2>
+          <div className="skills-content">
+            <img
+              className="skills-profile"
+              src={AboutProfile}
+              alt="saraswathi-sakthikumar"
+            />
+            <div className="skills-text">
+              {/* Content repeated as placeholder */}
+              <p>
+                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
+                based in the Edmonton area. I’m passionate about building
+                forward-thinking software and web applications that empower
+                engineers and drive innovation.
+              </p>
+              <p>
+                With solid experience in Web Development and Database
+                Management, I thrive on solving complex problems and learning
+                new technologies. I’m a quick learner, a strong team
+                collaborator, and deeply believe in the power of technology to
+                make a meaningful impact.
+              </p>
+              <p>
+                Driven by a commitment to lifelong learning, I specialize in the
+                .NET framework, JavaScript, and React. For me, web development
+                is the perfect blend of creativity, logic, and endless
+                opportunities to explore something new—and that’s what keeps me
+                inspired every day.
+              </p>
+              <p>
+                When I’m not coding, you’ll likely find me reading, staying
+                active, or enjoying quality time with my kids. My curiosity and
+                passion for continuous improvement fuel my drive to stay at the
+                forefront of the ever-evolving tech landscape.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="skills" className="section">
-        <h2>Skills</h2>
-        <p>.NET, React, SQL, Azure, C#, JavaScript, etc.</p>
+      {/* Projects Section */}
+      <section id="projects" className="sections">
+        <div className="project-inner">
+          <h2>Projects</h2>
+          <div className="project-content">
+            <img
+              className="project-profile"
+              src={AboutProfile}
+              alt="saraswathi-sakthikumar"
+            />
+            <div className="project-text">
+              {/* Same repeated content as placeholder */}
+              <p>
+                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
+                based in the Edmonton area. I’m passionate about building
+                forward-thinking software and web applications that empower
+                engineers and drive innovation.
+              </p>
+              <p>
+                With solid experience in Web Development and Database
+                Management, I thrive on solving complex problems and learning
+                new technologies. I’m a quick learner, a strong team
+                collaborator, and deeply believe in the power of technology to
+                make a meaningful impact.
+              </p>
+              <p>
+                Driven by a commitment to lifelong learning, I specialize in the
+                .NET framework, JavaScript, and React. For me, web development
+                is the perfect blend of creativity, logic, and endless
+                opportunities to explore something new—and that’s what keeps me
+                inspired every day.
+              </p>
+              <p>
+                When I’m not coding, you’ll likely find me reading, staying
+                active, or enjoying quality time with my kids. My curiosity and
+                passion for continuous improvement fuel my drive to stay at the
+                forefront of the ever-evolving tech landscape.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="contact" className="section">
+      {/* Contact Section */}
+      <section id="contact" className="sections">
         <h2>Contact</h2>
         <p>Feel free to reach out via email or LinkedIn.</p>
       </section>

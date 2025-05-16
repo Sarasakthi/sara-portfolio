@@ -1,3 +1,7 @@
+* {
+  font-family: tungstenw05-medium, Oswald, sans-serif;
+}
+
 html,
 body,
 #root {
@@ -18,7 +22,19 @@ body,
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: tungstenw05-medium, Oswald, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.sections {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
 }
 
 main {
@@ -44,10 +60,6 @@ footer {
 .container {
   width: 80%;
   margin: 0 auto;
-}
-
-section {
-  padding: 50px 0;
 }
 
 h2 {

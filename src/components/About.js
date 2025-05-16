@@ -7,10 +7,20 @@ const About = () => {
       <div className="container">
         <h2>About Me</h2>
         <p>
-          I’m a passionate full-stack developer with expertise in ASP.NET Core,
-          SQL, JavaScript, and more. With over 7 years of experience in web and
-          software development, I love building impactful and user-centric
-          solutions.
+          Hello! I’m Saraswathi Sakthikumar, a Full Stack Developer based in the
+          Edmonton area. I’m passionate about building forward-thinking software
+          and web applications that empower engineers and drive innovation. With
+          solid experience in Web Development and Database Management, I thrive
+          on solving complex problems and learning new technologies. I’m a quick
+          learner, a strong team collaborator, and deeply believe in the power
+          of technology to make a meaningful impact. Driven by a commitment to
+          lifelong learning, I specialize in the .NET framework, JavaScript, and
+          React. For me, web development is the perfect blend of creativity,
+          logic, and endless opportunities to explore something new and that’s
+          what keeps me inspired every day. When I’m not coding, you’ll likely
+          find me reading, staying active, or enjoying quality time with my
+          kids. My curiosity and passion for continuous improvement fuel my
+          drive to stay at the forefront of the ever-evolving tech landscape.
         </p>
       </div>
     </section>
