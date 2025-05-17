@@ -29,6 +29,10 @@ body {
   scroll-snap-type: y mandatory;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .sections {
   min-height: 100vh;
   scroll-snap-align: start;

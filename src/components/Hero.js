@@ -1,23 +1,166 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
-import HotAirBear from "../assets/images/beardrop-nobg.png";
+import BearImg from "../assets/images/solobeardrop-nobg.svg"; //beardrop-nobg.png";
+import BearImgHover from "../assets/images/solobeardrop-nobg-hover.svg"; //beardrop-nobg.png";
 import AboutProfile from "../assets/images/sara/saraProfile.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
+
+  // Calculate years of experience
+  const currentYear = new Date().getFullYear();
+  const yearsOfExperience = currentYear - 2018;
+
+  // Tech Slider
+  const techItems = [
+    {
+      name: "Azure",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-azure.png`,
+    },
+    {
+      name: "AWS",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-aws.svg`,
+    },
+    {
+      name: "Google Cloud",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-google-cloud.svg`,
+    },
+    {
+      name: "Java",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-java.png`,
+    },
+    {
+      name: ".Net",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-net.png`,
+    },
+    {
+      name: "C#",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-csharp.svg`,
+    },
+    {
+      name: "NodeJs",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-nodejs.jpg`,
+    },
+    {
+      name: "ReactJs",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-react.svg`,
+    },
+    {
+      name: "Power BI",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-powerbi.png`,
+    },
+    {
+      name: "SSRS",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-ssrs.png`,
+    },
+    {
+      name: "Dynamics",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-dynamics.png`,
+    },
+    {
+      name: "Salesforce",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-salesforce.png`,
+    },
+    {
+      name: "SharePoint",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-sharepoint.svg`,
+    },
+    {
+      name: "Office 365",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-office365.png`,
+    },
+    {
+      name: "Docker",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-docker.svg`,
+    },
+    {
+      name: "AI",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-ai.png`,
+    },
+    {
+      name: "IOT",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-iot.png`,
+    },
+  ];
+
+  const logosRepeated = [...techItems, ...techItems];
+
+  // About Slider
+  const aboutItems = [
+    {
+      name: yearsOfExperience + " Years Industry Experience",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-experience.png`,
+    },
+    {
+      name: "Cloud Ready",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-cloud-ready.png`,
+    },
+    {
+      name: "Tech Driven",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-tech-driven.png`,
+    },
+    {
+      name: "Full Stack Skilled",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-full-stack.png`,
+    },
+    {
+      name: "Problem Solver",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-problem-solver.png`,
+    },
+    {
+      name: "AI & Data Savvy",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-ai.png`,
+    },
+    {
+      name: "Multi Tech Expert",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-multi-tech.png`,
+    },
+    {
+      name: "Fast Learner",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-fast-learner.png`,
+    },
+    {
+      name: "Scalable Solutions",
+      url: `${process.env.PUBLIC_URL}/assets/images/about/about-scalable-solutions.png`,
+    },
+  ];
+
+  const logosRepeatedAbout = [...aboutItems, ...aboutItems];
+
+  // Diable scroll until the page is loaded
+  useEffect(() => {
+    // Disable scroll
+    document.body.classList.add("no-scroll");
+
+    // Re-enable scroll after 4 seconds (or match your animation duration)
+    const timeout = setTimeout(() => {
+      document.body.classList.remove("no-scroll");
+    }, 4500); // Adjust this to match your animation length
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Dark mode toggle
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.className = isDarkMode ? "dark-mode" : "";
+  }, [isDarkMode]);
+
+  // Intersection Observer for header animation
+  // This observer will trigger when the #about section is in view
   const aboutRef = useRef(null);
   const [animateHeader, setAnimateHeader] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Toggle animation class based on intersection
         setAnimateHeader(entry.isIntersecting);
       },
       {
         root: null, // viewport
         threshold: 0,
-        rootMargin: "-35% 0px -65% 0px", // Trigger when #about crosses center of viewport
+        rootMargin: "-35% 0px -65% 0px",
       }
     );
 
@@ -102,8 +245,51 @@ const Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Canvas resize on window resize
+  let resizeTimeout;
+  const handleResize = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    }, 200);
+  };
+
+  // Disables right-click context menu
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      const hero = document.querySelector(".hero-section");
+      const sections = document.querySelector(".sections");
+
+      if (
+        (hero && hero.contains(e.target)) ||
+        (sections && sections.contains(e.target))
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
+
   return (
     <>
+      {/* Dark mode toggle */}
+      <div className="dark-mode-toggle">
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="theme-toggle"
+          aria-label="Toggle Dark Mode"
+        >
+          {isDarkMode ? "🌙 Dark" : "☀️ Light"}
+        </button>
+      </div>
+
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <canvas ref={canvasRef} className="connecting-dots" />
@@ -112,32 +298,38 @@ const Hero = () => {
           <div className="hero-content hero-row">
             <img
               className="hot-air-bear"
-              src={HotAirBear}
+              src={BearImg}
               alt="Bear in hot air balloon"
+              onMouseOver={(e) => (e.currentTarget.src = BearImgHover)}
+              onMouseOut={(e) => (e.currentTarget.src = BearImg)}
             />
 
             <div className="hero-text-group">
               <div className="hero-text">
-                <h1>Hi, I'm Sara</h1>
+                <h1>
+                  Hi, I’m{" "}
+                  <a href="/sara-portfolio" className="hover-highlight">
+                    Sara
+                  </a>
+                </h1>
                 <div className="typewriter">
-                  <p>Full Stack Developer | Software Engineer</p>
+                  <p>Full Stack Developer | System Analyst</p>
                 </div>
               </div>
 
               <div className="hero-container">
-                <h1>Welcome to My Portfolio</h1>
+                <h1>Bringing Ideas to Life Through Code & Design</h1>
                 <p>
-                  Building meaningful and impactful solutions with a focus on
-                  performance and clean code.
+                  Explore my work, skills, and passion for building seamless
+                  digital experiences.
                 </p>
                 <br />
                 <a
                   href={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download="Sara-Sakthikumar-Resume.pdf"
                   className="cta-button"
                 >
-                  View My Resume
+                  Download My Resume
                 </a>
               </div>
             </div>
@@ -159,31 +351,41 @@ const Hero = () => {
             />
             <div className="about-text">
               <p>
-                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
-                based in the Edmonton area. I’m passionate about building
-                forward-thinking software and web applications that empower
-                engineers and drive innovation.
+                I am <span className="bold-only">Saraswathi Sakthikumar</span>,
+                a Full Stack Developer and System Analyst from Edmonton with a
+                passion for building smarter, more impactful web and software
+                solutions.
               </p>
               <p>
-                With solid experience in Web Development and Database
-                Management, I thrive on solving complex problems and learning
-                new technologies. I’m a quick learner, a strong team
-                collaborator, and deeply believe in the power of technology to
-                make a meaningful impact.
+                I enjoy working with technologies like .NET, JavaScript, and
+                React, and I’m always excited to learn something new.
               </p>
               <p>
-                Driven by a commitment to lifelong learning, I specialize in the
-                .NET framework, JavaScript, and React. For me, web development
-                is the perfect blend of creativity, logic, and endless
-                opportunities to explore something new—and that’s what keeps me
-                inspired every day.
+                With over {yearsOfExperience} years of experience in web
+                development and database management, I love turning complex
+                challenges into clean, efficient solutions. I'm a strong
+                believer in lifelong learning and the power of tech to make a
+                difference. 🏆
               </p>
               <p>
-                When I’m not coding, you’ll likely find me reading, staying
-                active, or enjoying quality time with my kids. My curiosity and
-                passion for continuous improvement fuel my drive to stay at the
-                forefront of the ever-evolving tech landscape.
+                Outside of work, I enjoy 📖 reading, 🧘 staying active, and 👨‍👧‍👦
+                spending time with my kids 🧒.
               </p>
+              <div className="about-learnmore">
+                <a href="#about" className="about-learnmore-button">
+                  <span className="link-icon bold-only">More About Me</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="about-slider-container">
+            <div className="about-slider-track">
+              {logosRepeatedAbout.map((about, index) => (
+                <div className="about-slider-item" key={index}>
+                  <img src={about.url} alt={about.name} />
+                  <span className="about-label">{about.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -227,6 +429,16 @@ const Hero = () => {
                 passion for continuous improvement fuel my drive to stay at the
                 forefront of the ever-evolving tech landscape.
               </p>
+            </div>
+          </div>
+          <div id="tech-slider" className="slider-container">
+            <div className="slider-track">
+              {logosRepeated.map((tech, index) => (
+                <div className="slider-item" key={index}>
+                  <img src={tech.url} alt={tech.name} />
+                  <span className="tech-label">{tech.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
