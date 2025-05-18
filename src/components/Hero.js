@@ -4,6 +4,7 @@ import BearImg from "../assets/images/solobeardrop-nobg.svg"; //beardrop-nobg.pn
 import BearImgHover from "../assets/images/solobeardrop-nobg-hover.svg"; //beardrop-nobg.png";
 import AboutProfile from "../assets/images/profile/sara-profile.webp";
 import IconBullet from "../assets/images/list-icon-blk.svg";
+import LogoSara from "../assets/images/logo-sara.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -345,7 +346,7 @@ const Hero = () => {
             <img
               className="hot-air-bear"
               src={BearImg}
-              alt="Bear in hot air balloon"
+              alt=""
               onMouseOver={(e) => (e.currentTarget.src = BearImgHover)}
               onMouseOut={(e) => (e.currentTarget.src = BearImg)}
             />
@@ -388,37 +389,59 @@ const Hero = () => {
         <div className="about-inner">
           <h2 id="about-header">About Me</h2>
           <div className="about-content">
-            <img
-              className="about-profile"
-              src={AboutProfile}
-              alt="saraswathi-sakthikumar"
-            />
+            <img className="about-profile" src={AboutProfile} alt="" />
             <div className="about-text">
-              <p className="about-text-intro">
-                I am <span className="bold-only">Saraswathi Sakthikumar</span>,
-                a Full Stack Developer and System Analyst from Edmonton with a
-                passion for building smarter, more impactful web and software
-                solutions.
-              </p>
-              <p className="about-text-intro">
-                I enjoy working with technologies like .NET, JavaScript, and
-                React, and I’m always excited to learn something new.
-              </p>
-              <p className="about-text-intro">
-                With over {yearsOfExperience} years of experience in web
-                development and database management, I love turning complex
-                challenges into clean, efficient solutions. I'm a strong
-                believer in lifelong learning and the power of tech to make a
-                difference.
-              </p>
-              <p>
-                Outside of work, I enjoy reading, staying active, and spending
-                time with my kids.
-              </p>
-              <div className="about-learnmore">
-                <a href="#about" className="about-learnmore-button">
-                  <span className="link-icon bold-only">More About Me</span>
-                </a>
+              <ul className="about-list">
+                <li className="about-text-intro">
+                  I am <span className="bold-only">Saraswathi Sakthikumar</span>
+                  , but you can call me <span className="bold-only">Sara!</span>
+                </li>
+                <li className="about-text-intro">
+                  I’m a{" "}
+                  <span className="bold-only">
+                    Full Stack Developer and Systems Analyst
+                  </span>{" "}
+                  based in Edmonton, passionate about building smarter,
+                  scalable, and meaningful web and software solutions.
+                </li>
+                <li className="about-text-intro">
+                  I specialize in technologies like{" "}
+                  <span className="bold-only">.NET, JavaScript, and React</span>
+                  , and I thrive on continuously expanding my skillset to stay
+                  ahead in a fast-paced tech landscape.
+                </li>
+                <li className="about-text-intro">
+                  With over{" "}
+                  <span className="bold-only">{yearsOfExperience} years</span>{" "}
+                  of experience in{" "}
+                  <span className="bold-only">
+                    Web development and Database Management
+                  </span>
+                  , I bring a problem-solving mindset to every project -
+                  transforming complex requirements into clean, high-performance
+                  solutions.
+                </li>
+                <li className="about-text-intro">
+                  I’m a firm believer in lifelong learning and the power of
+                  technology to create real impact.
+                </li>
+                <li className="about-text-intro">
+                  When I’m not coding, you’ll find me reading, staying active,
+                  or enjoying time with my kids.
+                </li>
+              </ul>
+
+              <div className="about-learnmore-container">
+                <div className="about-learnmore">
+                  <a href="#contact" className="about-learnmore-button">
+                    <span className="link-icon bold-only">Connect with Me</span>
+                  </a>
+                </div>
+                <div className="about-learnmore">
+                  <a href="#contact" className="about-learnmore-button">
+                    <span className="link-icon bold-only">Connect with Me</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -426,7 +449,7 @@ const Hero = () => {
             <div className="about-slider-track">
               {logosRepeatedAbout.map((about, index) => (
                 <div className="about-slider-item" key={index}>
-                  <img src={about.url} alt={about.name} />
+                  <img src={about.url} alt={""} />
                   <span className="about-label">{about.name}</span>
                 </div>
               ))}
@@ -460,7 +483,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("Backend")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -491,7 +514,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">C#, .NET : </span>
@@ -499,7 +522,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Java : </span>
@@ -507,7 +530,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Node.js : </span>
@@ -515,7 +538,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Reactjs : </span>
@@ -523,7 +546,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">JavaScript : </span>
@@ -548,7 +571,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -563,7 +586,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("Cloud")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -589,7 +612,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Microsoft Azure : </span>
@@ -597,7 +620,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">AWS : </span>
@@ -605,7 +628,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">
@@ -615,7 +638,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Docker : </span>
@@ -636,7 +659,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -651,7 +674,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("ERP")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -683,7 +706,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">
@@ -693,7 +716,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Salesforce : </span>
@@ -711,7 +734,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -726,7 +749,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("PowerBI")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -754,7 +777,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Power BI : </span>
@@ -762,7 +785,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">
@@ -773,7 +796,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Active Report : </span>
@@ -792,7 +815,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -807,7 +830,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("CRM")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -830,7 +853,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">SharePoint : </span>
@@ -838,7 +861,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">Office 365 : </span>
@@ -856,7 +879,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -872,7 +895,7 @@ const Hero = () => {
                     <li className="icon-bullet">
                       <img
                         src={getIconByName("EmergingTech")?.url}
-                        alt="Cloud"
+                        alt=""
                         className="icon-left"
                       />
                       <h3>
@@ -902,7 +925,7 @@ const Hero = () => {
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">AI Integration : </span>
@@ -911,7 +934,7 @@ const Hero = () => {
                         <br className="margin-bottom-ten" />
                         <img
                           src={IconBullet}
-                          alt="Bullet"
+                          alt=""
                           className="icon-bullet-left"
                         />
                         <span className="bold-only">
@@ -929,7 +952,7 @@ const Hero = () => {
                         <img
                           key={index}
                           src={item.url}
-                          alt={item.name}
+                          alt={""}
                           title={item.name}
                           className="skills-logo-img"
                         />
@@ -965,25 +988,21 @@ const Hero = () => {
         <div className="contact-content">
           <div className="contact-info">
             <div className="info-item">
-              <img src="/icons/email.svg" alt="Email" className="info-icon" />
+              <img src="/icons/email.svg" alt="" className="info-icon" />
               <div>
                 <strong>Email</strong>
                 <p>sarasakthikumar@gmail.com</p>
               </div>
             </div>
             <div className="info-item">
-              <img src="/icons/phone.svg" alt="Phone" className="info-icon" />
+              <img src="/icons/phone.svg" alt="" className="info-icon" />
               <div>
                 <strong>Phone</strong>
                 <p>+1 825-823-2463</p>
               </div>
             </div>
             <div className="info-item">
-              <img
-                src="/icons/location.svg"
-                alt="Location"
-                className="info-icon"
-              />
+              <img src="/icons/location.svg" alt="" className="info-icon" />
               <div>
                 <strong>Location</strong>
                 <p>Edmonton, AB, Canada</p>

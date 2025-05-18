@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import LogoSara from "../assets/images/logo-sara.svg";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,7 +21,14 @@ const Navbar = () => {
               window.location.href = process.env.PUBLIC_URL || "/";
             }}
           >
-            Sara
+            <img
+              src={LogoSara}
+              alt="Sara"
+              className="logo-sara-img"
+              onClick={() => {
+                window.location.href = process.env.PUBLIC_URL || "/";
+              }}
+            />
           </Link>
         </div>
         <ul className={`nav-links ${isMobile ? "mobile" : ""}`}>
