@@ -1,10 +1,21 @@
 {
   "files": {
-    "main.js": "/sara-portfolio/static/js/main.f91c84bb.js",
+    "main.css": "/sara-portfolio/static/css/main.2834d0fa.css",
+    "main.js": "/sara-portfolio/static/js/main.3828a51c.js",
+    "static/media/sara-profile.webp": "/sara-portfolio/static/media/sara-profile.8a3433dc9a2c251b0232.webp",
+    "static/media/solobeardrop-nobg-hover.svg": "/sara-portfolio/static/media/solobeardrop-nobg-hover.e951cfeab1f625f6f87e17d33b2a45db.svg",
+    "static/media/solobeardrop-nobg.svg": "/sara-portfolio/static/media/solobeardrop-nobg.8780a710efddfd42c9eb46fbaabb7eed.svg",
+    "static/media/list-icon-blk.svg": "/sara-portfolio/static/media/list-icon-blk.766e1251dbbe1cd83ff56023525b43d7.svg",
+    "static/media/logo-linkedin.png": "/sara-portfolio/static/media/logo-linkedin.e1deb407b2bc1e673912.png",
+    "static/media/logo-github.png": "/sara-portfolio/static/media/logo-github.6ae876b7ebb2b2739034.png",
+    "static/media/logo-facebook.png": "/sara-portfolio/static/media/logo-facebook.7a0040e84b8a48dd20bd.png",
+    "static/media/gotop.png": "/sara-portfolio/static/media/gotop.bed36f38dd9edb1b3791.png",
     "index.html": "/sara-portfolio/index.html",
-    "main.f91c84bb.js.map": "/sara-portfolio/static/js/main.f91c84bb.js.map"
+    "main.2834d0fa.css.map": "/sara-portfolio/static/css/main.2834d0fa.css.map",
+    "main.3828a51c.js.map": "/sara-portfolio/static/js/main.3828a51c.js.map"
   },
   "entrypoints": [
-    "static/js/main.f91c84bb.js"
+    "static/css/main.2834d0fa.css",
+    "static/js/main.3828a51c.js"
   ]
 }
