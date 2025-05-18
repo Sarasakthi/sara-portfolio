@@ -164,15 +164,16 @@
 /* Sections */
 .sections {
   position: relative;
-  background: #fff9f9 !important;
+  background: #f3e5f5 !important;
   color: #1d2f3e;
   z-index: 1;
   font-family: tungstenw05-medium, Oswald, sans-serif;
+  padding-top: 3.5rem;
   /*border: 1px solid #2d333b;*/
 }
 
 .sections:nth-child(even) {
-  background: #ffffff !important;
+  background: #eeeeee !important; /*#fff9f9 !important;*/
   /*background: linear-gradient(
     90deg,
     rgba(217, 132, 25, 1) 0%,
@@ -193,10 +194,24 @@
 
 .sections p {
   font-weight: 300;
-  margin-top: 10px;
   line-height: 30px;
   color: #222 !important;
   text-align: justify;
+}
+
+.sections .icon-bullet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /*margin-bottom: 0.5rem;*/
+}
+
+.sections .icon-left {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+  opacity: 1;
 }
 
 .sections .bold-only {
@@ -207,12 +222,15 @@
   font-weight: 600;
 }
 
-#about-header {
+#about-header,
+#skills-header {
   position: relative;
   padding-top: 1.5rem;
 }
 
-#about-header::before {
+/*
+#about-header::before,
+#skills-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -222,7 +240,8 @@
   background-color: #b5280e;
 }
 
-#about-header::after {
+#about-header::after,
+#skills-header::after {
   content: "";
   position: absolute;
   top: 3px;
@@ -233,18 +252,21 @@
   width: 0;
   opacity: 1;
 }
-
-#about-header.animate::after {
+#about-header.animate::after,
+#skills-header.animate::after {
   animation: heading_btm_line 1s forwards ease;
 }
 
-#about-header.animate-reverse::after {
+#about-header.animate-reverse::after,
+#skills-header.animate-reverse::after {
   animation: heading_btm_line 2s reverse forwards ease;
 }
+  */
 
 .about-inner,
 .project-inner,
-.skills-inner {
+.skills-inner,
+.contact-inner {
   width: 100%;
   max-width: 1000px;
   display: flex;
@@ -254,15 +276,22 @@
 }
 
 .about-content,
-.project-content,
-.skills-content {
+.project-content {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 60px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0;
   flex-wrap: wrap;
+}
+
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .about-profile,
@@ -281,14 +310,28 @@
 
 .about-inner h2,
 .project-inner h2,
-.skills-inner h2 {
+.skills-inner h2,
+.contact-inner h2 {
   font-size: 60px;
   font-weight: 500;
   font-family: tungstenw05-medium, Oswald, sans-serif;
   line-height: 70px;
   color: #000000;
-  margin: 0 30px 30px 30px;
+  margin: 0 30px 30px 0;
   text-align: left;
+}
+
+.about-inner h2::after,
+.project-inner h2::after,
+.skills-inner h2::after,
+.contact-inner h2::after {
+  content: "";
+  display: block;
+  width: 80%;
+  border-bottom: 4px solid #b5280e;
+  border-radius: 0% 0% 90% 0%;
+  margin-top: 10px;
+  position: relative;
 }
 
 .about-text,
@@ -300,12 +343,161 @@
   color: #565656;
 }
 
+.skills-text-main {
+  margin: 0;
+  display: flex;
+}
+
 .about-text p,
 .project-text p,
-.skills-text p {
-  margin-bottom: 1rem;
+.skills-text p,
+.skills-text-main p {
   font-size: 1.3rem;
   line-height: 30px;
+}
+
+.skills-text h3 {
+  font-size: 22px;
+  color: #222 !important;
+  width: 100%;
+}
+
+.about-text-intro,
+.skills-text-main-intro,
+.skills-description-text {
+  margin: 0 0 1.2rem 0;
+}
+
+.skills-description-text-intro {
+  margin: 10px 0 20px 0;
+}
+
+.skills-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.skills-logo-item {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills-logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 0.85;
+  transition: transform 0.3s ease;
+}
+
+.skills-logo-item img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.skills-text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.skills-text-box {
+  border-radius: 20px; /*30px 0px 0 30px;*/
+  background-color: #ffe6ee; /* #c5e1a5; #c9e1c1; #e2da99;*/
+  box-shadow: 0 0 8px #b6b6b6;
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+  border: 1px solid #cdcdcd;
+}
+
+.skills-text-box:nth-child(even) {
+  background-color: #dcedc8; /*rgb(220, 231, 117); /* #e6ee9c;*/
+  border-radius: 20px; /*30px 0px 0 30px;*/
+}
+
+.skills-text-heading {
+  margin: 0;
+  display: flex;
+}
+
+.skills-text-heading .skills-text-list {
+  margin: 5px 0;
+}
+
+.skills-description {
+  margin: 0;
+  flex: 1 1 70%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.skills-logos {
+  flex: 1 1 25%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+.skills-logo-img {
+  width: 70px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.skills-logo-img:hover {
+  transform: scale(1.1);
+}
+
+.icon-left {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.icon-bullet-left {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.margin-bottom-ten {
+  margin: 0 0 10px 0;
+}
+
+.margin-top-ten {
+  margin-top: 10px;
+}
+
+.deco-cubtiger-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  justify-content: right;
+  align-items: right;
+  overflow: hidden;
+  left: 1000px;
+  top: 10px;
+}
+
+.deco-cubtiger {
+  max-width: 100%;
+  height: 150px;
+  color: transparent;
+  position: absolute;
+  flex-shrink: 0;
 }
 
 /* Typewriter animation */
@@ -341,7 +533,6 @@
   text-decoration: none;
   width: 100%;
   height: 100%;
-
   background-color: #4caf50;
   color: white;
   font-size: 1.2rem;
@@ -352,11 +543,17 @@
     box-shadow 0.2s ease;
 }
 
-.about-learnmore-button:hover {
+.about-learnmore-button:hover,
+.about-learnmore-button:focus {
   background-color: #45a049;
-  transform: scale(1.04);
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(69, 160, 73, 0.6);
   outline: none;
+}
+
+.about-learnmore-button:focus-visible {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
 }
 
 .link-icon {
@@ -394,12 +591,14 @@
   position: relative;
   height: 100px;
   min-height: max-content;
-  margin-top: 1.5rem;
-  background-color: #fff9f9;
-  border: 1px solid #d1c9c3;
-  border-radius: 40px;
+  margin: 10px 0 3.5rem 0;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 50px 50px 50px 50px;
   overflow: hidden;
   display: flex;
+  box-shadow: 0 0 4px #b6b6b6;
+  cursor: pointer;
 }
 
 .about-slider-track,

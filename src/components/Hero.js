@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import BearImg from "../assets/images/solobeardrop-nobg.svg"; //beardrop-nobg.png";
 import BearImgHover from "../assets/images/solobeardrop-nobg-hover.svg"; //beardrop-nobg.png";
-import AboutProfile from "../assets/images/sara/saraProfile.svg";
+import AboutProfile from "../assets/images/profile/sara-profile.webp";
+import IconBullet from "../assets/images/list-icon-blk.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -15,7 +16,7 @@ const Hero = () => {
   const techItems = [
     {
       name: "Azure",
-      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-azure.png`,
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-azure.svg`,
     },
     {
       name: "AWS",
@@ -30,20 +31,24 @@ const Hero = () => {
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-java.png`,
     },
     {
-      name: ".Net",
+      name: "Net",
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-net.png`,
     },
     {
-      name: "C#",
+      name: "CSharp",
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-csharp.svg`,
     },
     {
       name: "NodeJs",
-      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-nodejs.jpg`,
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-nodejs.svg`,
     },
     {
       name: "ReactJs",
-      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-react.svg`,
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-react.png`,
+    },
+    {
+      name: "JavaScript",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-js.png`,
     },
     {
       name: "Power BI",
@@ -74,6 +79,10 @@ const Hero = () => {
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-docker.svg`,
     },
     {
+      name: "Active",
+      url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-active.png`,
+    },
+    {
       name: "AI",
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-ai.png`,
     },
@@ -82,8 +91,46 @@ const Hero = () => {
       url: `${process.env.PUBLIC_URL}/assets/images/tech/tech-iot.png`,
     },
   ];
-
   const logosRepeated = [...techItems, ...techItems];
+
+  // Icons for the skills section
+  const skillsIcons = [
+    {
+      name: "PowerBI",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-bi.svg`,
+    },
+    {
+      name: "Cloud",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-cloud.svg`,
+    },
+    {
+      name: "ContentMngt",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-content-mngt.svg`,
+    },
+    {
+      name: "CRM",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-crm.svg`,
+    },
+    {
+      name: "EmergingTech",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-emergingtech.svg`,
+    },
+    {
+      name: "ERP",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-erp.svg`,
+    },
+    {
+      name: "Frontend",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-frontend.svg`,
+    },
+    {
+      name: "Backend",
+      url: `${process.env.PUBLIC_URL}/assets/images/icons/icon-backend.svg`,
+    },
+  ];
+  const getIconByName = (name) =>
+    skillsIcons.find((icon) => icon.name === name);
+  const icon = getIconByName("PowerBI");
 
   // About Slider
   const aboutItems = [
@@ -124,7 +171,6 @@ const Hero = () => {
       url: `${process.env.PUBLIC_URL}/assets/images/about/about-scalable-solutions.png`,
     },
   ];
-
   const logosRepeatedAbout = [...aboutItems, ...aboutItems];
 
   // Diable scroll until the page is loaded
@@ -135,7 +181,7 @@ const Hero = () => {
     // Re-enable scroll after 4 seconds (or match your animation duration)
     const timeout = setTimeout(() => {
       document.body.classList.remove("no-scroll");
-    }, 4500); // Adjust this to match your animation length
+    }, 5500); // Adjust this to match your animation length
 
     return () => clearTimeout(timeout);
   }, []);
@@ -340,9 +386,7 @@ const Hero = () => {
       {/* About Section */}
       <section id="about" className="sections" ref={aboutRef}>
         <div className="about-inner">
-          <h2 id="about-header" className={animateHeader ? "animate" : ""}>
-            About Me
-          </h2>
+          <h2 id="about-header">About Me</h2>
           <div className="about-content">
             <img
               className="about-profile"
@@ -350,26 +394,26 @@ const Hero = () => {
               alt="saraswathi-sakthikumar"
             />
             <div className="about-text">
-              <p>
+              <p className="about-text-intro">
                 I am <span className="bold-only">Saraswathi Sakthikumar</span>,
                 a Full Stack Developer and System Analyst from Edmonton with a
                 passion for building smarter, more impactful web and software
                 solutions.
               </p>
-              <p>
+              <p className="about-text-intro">
                 I enjoy working with technologies like .NET, JavaScript, and
                 React, and I’m always excited to learn something new.
               </p>
-              <p>
+              <p className="about-text-intro">
                 With over {yearsOfExperience} years of experience in web
                 development and database management, I love turning complex
                 challenges into clean, efficient solutions. I'm a strong
                 believer in lifelong learning and the power of tech to make a
-                difference. 🏆
+                difference.
               </p>
               <p>
-                Outside of work, I enjoy 📖 reading, 🧘 staying active, and 👨‍👧‍👦
-                spending time with my kids 🧒.
+                Outside of work, I enjoy reading, staying active, and spending
+                time with my kids.
               </p>
               <div className="about-learnmore">
                 <a href="#about" className="about-learnmore-button">
@@ -392,53 +436,507 @@ const Hero = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="sections">
+      <section id="skills" className="sections" ref={aboutRef}>
         <div className="skills-inner">
-          <h2>Skills</h2>
+          <h2 id="skills-header" className={animateHeader ? "animate" : ""}>
+            Skills
+          </h2>
           <div className="skills-content">
-            <img
-              className="skills-profile"
-              src={AboutProfile}
-              alt="saraswathi-sakthikumar"
-            />
-            <div className="skills-text">
-              {/* Content repeated as placeholder */}
-              <p>
-                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
-                based in the Edmonton area. I’m passionate about building
-                forward-thinking software and web applications that empower
-                engineers and drive innovation.
-              </p>
-              <p>
-                With solid experience in Web Development and Database
-                Management, I thrive on solving complex problems and learning
-                new technologies. I’m a quick learner, a strong team
-                collaborator, and deeply believe in the power of technology to
-                make a meaningful impact.
-              </p>
-              <p>
-                Driven by a commitment to lifelong learning, I specialize in the
-                .NET framework, JavaScript, and React. For me, web development
-                is the perfect blend of creativity, logic, and endless
-                opportunities to explore something new—and that’s what keeps me
-                inspired every day.
-              </p>
-              <p>
-                When I’m not coding, you’ll likely find me reading, staying
-                active, or enjoying quality time with my kids. My curiosity and
-                passion for continuous improvement fuel my drive to stay at the
-                forefront of the ever-evolving tech landscape.
+            <div className="skills-text-main">
+              {/* General  */}
+              <p className="skills-text-main-intro">
+                I bring a versatile skill set built on real-world experience
+                across a broad spectrum of modern technologies. From backend to
+                frontend, from cloud platforms to enterprise systems, my toolkit
+                is designed for scalable, secure, and intelligent solutions.
               </p>
             </div>
-          </div>
-          <div id="tech-slider" className="slider-container">
-            <div className="slider-track">
-              {logosRepeated.map((tech, index) => (
-                <div className="slider-item" key={index}>
-                  <img src={tech.url} alt={tech.name} />
-                  <span className="tech-label">{tech.name}</span>
+
+            <div className="skills-text">
+              {/* Skills - Software Programming */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("Backend")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">Software Programming</span>
+                      </h3>
+                    </li>
+                  </ul>
                 </div>
-              ))}
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Proficient in developing robust and scalable backend
+                        systems using{" "}
+                        <span className="bold-only">
+                          C# (.NET), Java, and Node.js
+                        </span>
+                        . Skilled in creating{" "}
+                        <span className="bold-only">RESTful APIs</span>,
+                        integrating microservices, and ensuring secure,
+                        high-performance server-side applications. Expert in
+                        building responsive, accessible user interfaces with
+                        <span className="bold-only"> ReactJS</span> and modern
+                        <span className="bold-only"> JavaScript</span>. Focused
+                        on delivering high-performance frontend solutions with
+                        strong UX/UI principles and seamless API integration.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">C#, .NET : </span>
+                        ASP.NET Core, Web APIs, Entity Framework
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Java : </span>
+                        Spring Boot, REST APIs, Microservices
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Node.js : </span>
+                        RESTful APIs, Express.js, event-driven architecture
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Reactjs : </span>
+                        Hooks, Context API, performance optimization
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">JavaScript : </span>
+                        Modern ES6+, DOM manipulation, async programming
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) =>
+                        [
+                          "CSharp",
+                          "Net",
+                          "ReactJs",
+                          "NodeJs",
+                          "Java",
+                          "JavaScript",
+                        ].includes(item.name)
+                      )
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
+              {/* Skills - Cloud */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("Cloud")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">Cloud Platforms</span>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Hands-on experience with{" "}
+                        <span className="bold-only">
+                          Microsoft Azure, AWS, and Google Cloud Platform
+                        </span>{" "}
+                        for deploying, scaling, and monitoring cloud-native
+                        solutions. Proficient in{" "}
+                        <span className="bold-only">Docker </span> for
+                        containerization and cloud service orchestration using
+                        CI/CD pipelines.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Microsoft Azure : </span>
+                        Deployment, App Services, Azure Functions
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">AWS : </span>
+                        EC2, S3, Lambda, IAM, API Gateway
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">
+                          Google Cloud Platform :{" "}
+                        </span>
+                        Compute Engine, Firebase, Cloud Function
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Docker : </span>
+                        Containerization for portable and consistent
+                        environments
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) =>
+                        ["Azure", "AWS", "Google Cloud", "Docker"].includes(
+                          item.name
+                        )
+                      )
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
+              {/* Skills - ERP */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("ERP")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">Enterprise Solutions</span>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Experience in integrating and customizing
+                        <span className="bold-only">
+                          {" "}
+                          Microsoft Dynamics 365 ERP{" "}
+                        </span>{" "}
+                        solutions to automate business functions such as
+                        finance, operations, and supply chain, enabling better
+                        data-driven decisions across enterprises. Implemented
+                        and customized CRM systems such as{" "}
+                        <span className="bold-only">Salesforce</span> and{" "}
+                        <span className="bold-only">
+                          Microsoft Dynamics CRM
+                        </span>{" "}
+                        to improve customer engagement, automate sales
+                        processes, and streamline customer service operations.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">
+                          Microsoft Dynamics 365 :{" "}
+                        </span>
+                        Customizations, Power Platform integration, workflows
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Salesforce : </span>
+                        Apex, Lightning Components, CRM customization
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) =>
+                        ["Dynamics", "Salesforce"].includes(item.name)
+                      )
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
+              {/* Skills - BI */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("PowerBI")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">
+                          Business intelligence and analytics
+                        </span>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Adept at transforming raw data into meaningful insights
+                        using{" "}
+                        <span className="bold-only">
+                          {" "}
+                          Power BI, SSRS, and Active Reports.{" "}
+                        </span>
+                        Experienced in building interactive dashboards,
+                        paginated and embedded reports, and automated reporting
+                        workflows for real-time decision-making.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Power BI : </span>
+                        Data modeling, visualization, and custom dashboards
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">
+                          SSRS (SQL Server Reporting Services) :{" "}
+                        </span>
+                        Pixel-perfect paginated reports, subscriptions, and
+                        enterprise-level reporting
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Active Report : </span>
+                        Lightweight, embeddable reports for web applications,
+                        enabling offline viewing and customizable UI components
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) =>
+                        ["SSRS", "Active", "Power BI"].includes(item.name)
+                      )
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
+              {/* Skills - Content Management */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("CRM")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">Content Management</span>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Experienced with enterprise-level platforms like
+                        <span className="bold-only"> SharePoint </span>
+                        and
+                        <span className="bold-only"> Office 365</span>, enabling
+                        seamless collaboration, content organization, and
+                        document lifecycle management.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">SharePoint : </span>
+                        Custom apps, document management, automation
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">Office 365 : </span>
+                        Graph API, Outlook, SharePoint, and Teams integrations
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) =>
+                        ["Office 365", "SharePoint"].includes(item.name)
+                      )
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Skills - Emerging Tech */}
+              <div className="skills-text-box">
+                <div className="skills-text-heading">
+                  <ul className="skills-text-list">
+                    <li className="icon-bullet">
+                      <img
+                        src={getIconByName("EmergingTech")?.url}
+                        alt="Cloud"
+                        className="icon-left"
+                      />
+                      <h3>
+                        <span className="bold-only">Emerging Technologies</span>
+                      </h3>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skills-text-container">
+                  <div className="skills-description">
+                    <p className="skills-description-text">
+                      <div className="skills-description-text-intro">
+                        Actively working with cutting-edge technologies
+                        including using
+                        <span className="bold-only">
+                          {" "}
+                          Artificial Intelligence (AI){" "}
+                        </span>
+                        for predictive analytics and
+                        <span className="bold-only">
+                          {" "}
+                          Internet of Things (IoT){" "}
+                        </span>
+                        for building smart, connected applications that leverage
+                        real-time data.
+                      </div>
+                      <span className="skills-description-text-list">
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">AI Integration : </span>
+                        Natural Language Processing, Image Recognition, and
+                        Intelligent Automation
+                        <br className="margin-bottom-ten" />
+                        <img
+                          src={IconBullet}
+                          alt="Bullet"
+                          className="icon-bullet-left"
+                        />
+                        <span className="bold-only">
+                          IoT (Internet of Things) :{" "}
+                        </span>
+                        Device integration, Telemetry, Azure IoT Hub
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="skills-logos">
+                    {techItems
+                      .filter((item) => ["AI", "IOT"].includes(item.name))
+                      .map((item, index) => (
+                        <img
+                          key={index}
+                          src={item.url}
+                          alt={item.name}
+                          title={item.name}
+                          className="skills-logo-img"
+                        />
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -448,49 +946,81 @@ const Hero = () => {
       <section id="projects" className="sections">
         <div className="project-inner">
           <h2>Projects</h2>
-          <div className="project-content">
-            <img
-              className="project-profile"
-              src={AboutProfile}
-              alt="saraswathi-sakthikumar"
-            />
-            <div className="project-text">
-              {/* Same repeated content as placeholder */}
-              <p>
-                Hello! I’m <b>Saraswathi Sakthikumar</b>, a Full Stack Developer
-                based in the Edmonton area. I’m passionate about building
-                forward-thinking software and web applications that empower
-                engineers and drive innovation.
-              </p>
-              <p>
-                With solid experience in Web Development and Database
-                Management, I thrive on solving complex problems and learning
-                new technologies. I’m a quick learner, a strong team
-                collaborator, and deeply believe in the power of technology to
-                make a meaningful impact.
-              </p>
-              <p>
-                Driven by a commitment to lifelong learning, I specialize in the
-                .NET framework, JavaScript, and React. For me, web development
-                is the perfect blend of creativity, logic, and endless
-                opportunities to explore something new—and that’s what keeps me
-                inspired every day.
-              </p>
-              <p>
-                When I’m not coding, you’ll likely find me reading, staying
-                active, or enjoying quality time with my kids. My curiosity and
-                passion for continuous improvement fuel my drive to stay at the
-                forefront of the ever-evolving tech landscape.
-              </p>
-            </div>
-          </div>
+          <div className="project-content"></div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="sections">
-        <h2>Contact</h2>
-        <p>Feel free to reach out via email or LinkedIn.</p>
+        <div className="project-inner">
+          <h2>Get In Touch</h2>
+          <div className="project-content"></div>
+        </div>
+
+        <p className="contact-intro">
+          Have a project in mind or want to chat? Feel free to reach out using
+          the form or contact me directly.
+        </p>
+
+        <div className="contact-content">
+          <div className="contact-info">
+            <div className="info-item">
+              <img src="/icons/email.svg" alt="Email" className="info-icon" />
+              <div>
+                <strong>Email</strong>
+                <p>sarasakthikumar@gmail.com</p>
+              </div>
+            </div>
+            <div className="info-item">
+              <img src="/icons/phone.svg" alt="Phone" className="info-icon" />
+              <div>
+                <strong>Phone</strong>
+                <p>+1 825-823-2463</p>
+              </div>
+            </div>
+            <div className="info-item">
+              <img
+                src="/icons/location.svg"
+                alt="Location"
+                className="info-icon"
+              />
+              <div>
+                <strong>Location</strong>
+                <p>Edmonton, AB, Canada</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-form">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.location.href = "mailto:sarasakthikumar@gmail.com";
+              }}
+            >
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Message"
+                required
+              ></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
       </section>
     </>
   );
