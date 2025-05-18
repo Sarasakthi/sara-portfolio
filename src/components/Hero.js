@@ -4,7 +4,11 @@ import BearImg from "../assets/images/solobeardrop-nobg.svg"; //beardrop-nobg.pn
 import BearImgHover from "../assets/images/solobeardrop-nobg-hover.svg"; //beardrop-nobg.png";
 import AboutProfile from "../assets/images/profile/sara-profile.webp";
 import IconBullet from "../assets/images/list-icon-blk.svg";
-import LogoSara from "../assets/images/logo-sara.svg";
+import BulletAbout from "../assets/images/bullet-about.svg";
+import BulletSkills from "../assets/images/bullet-skills.svg";
+import BulletResume from "../assets/images/bullet-resume.svg";
+import BulletProjects from "../assets/images/bullet-projects.svg";
+import BulletContact from "../assets/images/bullet-contact.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -324,6 +328,12 @@ const Hero = () => {
     };
   }, []);
 
+  const [showResume, setShowResume] = useState(false);
+
+  const handleViewResume = () => {
+    setShowResume(true);
+  };
+
   return (
     <>
       {/* Dark mode toggle */}
@@ -374,7 +384,7 @@ const Hero = () => {
                 <a
                   href={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
                   download="Sara-Sakthikumar-Resume.pdf"
-                  className="cta-button"
+                  className="cta-button bold-only"
                 >
                   Download My Resume
                 </a>
@@ -387,9 +397,31 @@ const Hero = () => {
       {/* About Section */}
       <section id="about" className="sections" ref={aboutRef}>
         <div className="about-inner">
-          <h2 id="about-header">About Me</h2>
+          <h2 id="about-header">
+            <img src={BulletAbout} alt="" className="bullet-header" />
+            About Me
+          </h2>
           <div className="about-content">
-            <img className="about-profile" src={AboutProfile} alt="" />
+            <div className="about-learnmore-container">
+              <img className="about-profile" src={AboutProfile} alt="" />
+              <div className="about-learnmore">
+                <div className="about-learnmore-connect">
+                  <a href="#contact" className="about-learnmore-button">
+                    <span className="link-icon bold-only">Connect with Me</span>
+                  </a>
+                </div>
+                <div className="about-learnmore-resume">
+                  <a
+                    href={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="about-learnmore-button"
+                  >
+                    <span className="link-icon bold-only">View My Resume</span>
+                  </a>
+                </div>
+              </div>
+            </div>
             <div className="about-text">
               <ul className="about-list">
                 <li className="about-text-intro">
@@ -430,19 +462,6 @@ const Hero = () => {
                   or enjoying time with my kids.
                 </li>
               </ul>
-
-              <div className="about-learnmore-container">
-                <div className="about-learnmore">
-                  <a href="#contact" className="about-learnmore-button">
-                    <span className="link-icon bold-only">Connect with Me</span>
-                  </a>
-                </div>
-                <div className="about-learnmore">
-                  <a href="#contact" className="about-learnmore-button">
-                    <span className="link-icon bold-only">Connect with Me</span>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
           <div className="about-slider-container">
@@ -462,6 +481,7 @@ const Hero = () => {
       <section id="skills" className="sections" ref={aboutRef}>
         <div className="skills-inner">
           <h2 id="skills-header" className={animateHeader ? "animate" : ""}>
+            <img src={BulletSkills} alt="" className="bullet-header" />
             Skills
           </h2>
           <div className="skills-content">
@@ -968,76 +988,271 @@ const Hero = () => {
       {/* Projects Section */}
       <section id="projects" className="sections">
         <div className="project-inner">
-          <h2>Projects</h2>
-          <div className="project-content"></div>
+          <div className="project-content-main-body">
+            <div className="project-content-center">
+              <div className="project-content">
+                <div className="project-text-main">
+                  <div className="project-text-main-stickyside">
+                    <div className="project-text-main-stickyside-content">
+                      <h2 id="project-header">
+                        <img
+                          src={BulletProjects}
+                          alt=""
+                          className="bullet-header"
+                        />
+                        Selected works
+                      </h2>
+                      {/* General  */}
+                      <ul className="project-text-main-intro">
+                        <li>
+                          As a Full Stack Developer and Systems Analyst, I’ve
+                          led and contributed to diverse projects ranging from
+                          enterprise applications to creative web-based
+                          solutions. My work spans across industries such as
+                          healthcare, manufacturing, HR, and banking—delivering
+                          scalable, secure, and user-friendly systems.
+                        </li>
+                        <li>
+                          Each project reflects my expertise in front-end and
+                          back-end development using technologies like .NET,
+                          React, JavaScript, C#, Spring Boot, SQL, and cloud
+                          platforms such as Azure and AWS. I specialize in
+                          translating complex business requirements into
+                          elegant, maintainable code and collaborating
+                          cross-functionally to ensure seamless integrations,
+                          efficient workflows, and high-performance delivery.
+                        </li>
+                        <li>
+                          Whether you're a recruiter evaluating my technical
+                          strengths or a client seeking reliable and modern
+                          software solutions, these projects showcase my ability
+                          to deliver robust, data-driven, and future-proof
+                          applications tailored to business goals.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="project-text">
+                  {/* Skills - Software Programming */}
+                  <div className="skills-text-box">
+                    <div className="skills-text-heading">
+                      <ul className="skills-text-list">
+                        <li className="icon-bullet">
+                          <img
+                            src={getIconByName("Backend")?.url}
+                            alt=""
+                            className="icon-left"
+                          />
+                          <h3>
+                            <span className="bold-only">
+                              Software Programming
+                            </span>
+                          </h3>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="skills-text-container">
+                      <div className="skills-description">
+                        <p className="skills-description-text">
+                          <div className="skills-description-text-intro">
+                            Proficient in developing robust and scalable backend
+                            systems using{" "}
+                            <span className="bold-only">
+                              C# (.NET), Java, and Node.js
+                            </span>
+                            . Skilled in creating{" "}
+                            <span className="bold-only">RESTful APIs</span>,
+                            integrating microservices, and ensuring secure,
+                            high-performance server-side applications. Expert in
+                            building responsive, accessible user interfaces with
+                            <span className="bold-only"> ReactJS</span> and
+                            modern
+                            <span className="bold-only"> JavaScript</span>.
+                            Focused on delivering high-performance frontend
+                            solutions with strong UX/UI principles and seamless
+                            API integration.
+                          </div>
+                          <span className="skills-description-text-list">
+                            <img
+                              src={IconBullet}
+                              alt=""
+                              className="icon-bullet-left"
+                            />
+                            <span className="bold-only">C#, .NET : </span>
+                            ASP.NET Core, Web APIs, Entity Framework
+                            <br className="margin-bottom-ten" />
+                            <img
+                              src={IconBullet}
+                              alt=""
+                              className="icon-bullet-left"
+                            />
+                            <span className="bold-only">Java : </span>
+                            Spring Boot, REST APIs, Microservices
+                            <br className="margin-bottom-ten" />
+                            <img
+                              src={IconBullet}
+                              alt=""
+                              className="icon-bullet-left"
+                            />
+                            <span className="bold-only">Node.js : </span>
+                            RESTful APIs, Express.js, event-driven architecture
+                            <br className="margin-bottom-ten" />
+                            <img
+                              src={IconBullet}
+                              alt=""
+                              className="icon-bullet-left"
+                            />
+                            <span className="bold-only">Reactjs : </span>
+                            Hooks, Context API, performance optimization
+                            <br className="margin-bottom-ten" />
+                            <img
+                              src={IconBullet}
+                              alt=""
+                              className="icon-bullet-left"
+                            />
+                            <span className="bold-only">JavaScript : </span>
+                            Modern ES6+, DOM manipulation, async programming
+                          </span>
+                        </p>
+                      </div>
+
+                      <div className="skills-logos">
+                        {techItems
+                          .filter((item) =>
+                            [
+                              "CSharp",
+                              "Net",
+                              "ReactJs",
+                              "NodeJs",
+                              "Java",
+                              "JavaScript",
+                            ].includes(item.name)
+                          )
+                          .map((item, index) => (
+                            <img
+                              key={index}
+                              src={item.url}
+                              alt={""}
+                              title={item.name}
+                              className="skills-logo-img"
+                            />
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" className="sections" ref={aboutRef}>
+        <div className="resume-inner">
+          <h2 id="resume-header">
+            <img src={BulletResume} alt="" className="bullet-header" />
+            Resume
+          </h2>
+
+          <div className="resume-download">
+            <a
+              href={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-download-button"
+            >
+              <span className="link-icon bold-only">Download My Resume</span>
+            </a>
+          </div>
+
+          <div className="resume-content">
+            <iframe
+              src={`${process.env.PUBLIC_URL}/myresumeSara.pdf`}
+              title="Resume Viewer"
+              width="100%"
+              height="800px"
+              style={{ border: "none" }}
+            ></iframe>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="sections">
-        <div className="project-inner">
-          <h2>Get In Touch</h2>
-          <div className="project-content"></div>
-        </div>
+        <div className="contact-inner">
+          <h2 id="contact-header">
+            <img src={BulletContact} alt="" className="bullet-header" />
+            Get In Touch
+          </h2>
+          <div className="contact-content">
+            <p className="contact-intro">
+              Have a project in mind or want to chat? Feel free to reach out
+              using the form or contact me directly.
+            </p>
 
-        <p className="contact-intro">
-          Have a project in mind or want to chat? Feel free to reach out using
-          the form or contact me directly.
-        </p>
+            <div className="contact-content">
+              <div className="contact-info">
+                <div className="info-item">
+                  <img src="/icons/email.svg" alt="" className="info-icon" />
+                  <div>
+                    <strong>Email</strong>
+                    <p>sarasakthikumar@gmail.com</p>
+                  </div>
+                </div>
+                <div className="info-item">
+                  <img src="/icons/phone.svg" alt="" className="info-icon" />
+                  <div>
+                    <strong>Phone</strong>
+                    <p>+1 825-823-2463</p>
+                  </div>
+                </div>
+                <div className="info-item">
+                  <img src="/icons/location.svg" alt="" className="info-icon" />
+                  <div>
+                    <strong>Location</strong>
+                    <p>Edmonton, AB, Canada</p>
+                  </div>
+                </div>
+              </div>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-item">
-              <img src="/icons/email.svg" alt="" className="info-icon" />
-              <div>
-                <strong>Email</strong>
-                <p>sarasakthikumar@gmail.com</p>
+              <div className="contact-form">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    window.location.href = "mailto:sarasakthikumar@gmail.com";
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    rows="5"
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                  <button type="submit">Send Message</button>
+                </form>
               </div>
             </div>
-            <div className="info-item">
-              <img src="/icons/phone.svg" alt="" className="info-icon" />
-              <div>
-                <strong>Phone</strong>
-                <p>+1 825-823-2463</p>
-              </div>
-            </div>
-            <div className="info-item">
-              <img src="/icons/location.svg" alt="" className="info-icon" />
-              <div>
-                <strong>Location</strong>
-                <p>Edmonton, AB, Canada</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="contact-form">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.location.href = "mailto:sarasakthikumar@gmail.com";
-              }}
-            >
-              <input type="text" name="name" placeholder="Your Name" required />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                required
-              />
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Message"
-                required
-              ></textarea>
-              <button type="submit">Send Message</button>
-            </form>
           </div>
         </div>
       </section>

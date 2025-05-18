@@ -146,6 +146,7 @@
   border-radius: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
+  font-weight: 600;
 }
 
 .cta-button:hover,
@@ -223,8 +224,17 @@
 }
 
 #about-header,
-#skills-header {
+#skills-header,
+#resume-header,
+#contact-header {
   position: relative;
+  padding-top: 1.5rem;
+}
+
+#project-header {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
   padding-top: 1.5rem;
 }
 
@@ -266,7 +276,8 @@
 .about-inner,
 .project-inner,
 .skills-inner,
-.contact-inner {
+.contact-inner,
+.resume-inner {
   width: 100%;
   max-width: 1000px;
   display: flex;
@@ -276,14 +287,23 @@
 }
 
 .about-content,
-.project-content {
+.contact-content {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
-  max-width: 900px;
-  margin: 0;
+  gap: 2rem;
   flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.resume-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .skills-content {
@@ -294,9 +314,118 @@
   gap: 2rem;
 }
 
+.project-content-main-body {
+  width: 100%;
+  margin: 0 auto;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.project-content-center {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 0;
+}
+
+.project-content-center::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.project-content {
+  float: left;
+  width: 100%;
+  clear: both;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  transform: none;
+}
+
+.project-text-main {
+  float: left;
+  width: 50%;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  min-height: 1px;
+}
+
+.project-text-main-stickyside {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  position: fixed;
+  top: 56px;
+  left: 269px;
+  width: 480px;
+}
+
+.project-text-main-stickyside::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.project-text {
+  float: left;
+  width: 52%;
+  padding-left: 30px;
+  background-color: transparent;
+  line-height: 1.6px;
+  color: #565656;
+}
+
+@media screen and (max-width: 1700px) {
+  .project-text-main {
+    width: 50%;
+  }
+
+  .project-text {
+    width: 50%;
+    padding-left: 30px;
+    padding-right: 0;
+  }
+}
+
+/*
+.project-content {
+  display: flex;
+  position: relative;
+  margin-top: 50px;
+}
+*/
+
+/* Main Content Area */
+.project-main-content {
+  flex: 1;
+  padding: 20px 40px;
+  overflow-y: auto;
+}
+
+.project-card {
+  margin-bottom: 60px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 40px;
+}
+
+.project-card h3 {
+  font-size: 28px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
 .about-profile,
 .project-profile,
-.skills-profile {
+.skills-profile,
+.resume-profile,
+.contact-profile {
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -311,6 +440,7 @@
 .about-inner h2,
 .project-inner h2,
 .skills-inner h2,
+.resume-inner h2,
 .contact-inner h2 {
   font-size: 60px;
   font-weight: 500;
@@ -324,18 +454,25 @@
 .about-inner h2::after,
 .project-inner h2::after,
 .skills-inner h2::after,
+.resume-inner h2::after,
 .contact-inner h2::after {
   content: "";
   display: block;
-  width: 80%;
-  border-bottom: 4px solid #b5280e;
+  width: 50%;
+  border-bottom: 5px solid #b5280e;
   border-radius: 0% 0% 90% 0%;
   margin-top: 10px;
   position: relative;
 }
 
-.about-text,
-.project-text,
+.project-inner h2::after {
+  width: 100%;
+}
+
+.about-text {
+  flex: 1 1 60%;
+}
+
 .skills-text {
   flex: 1;
   font-size: 20px;
@@ -352,12 +489,23 @@
 .project-text p,
 .skills-text p,
 .skills-text-main p,
+.project-text p,
+.project-text-main p,
 .about-text li {
   font-size: 1.3rem;
   line-height: 30px;
 }
 
-.skills-text h3 {
+.project-text-main li {
+  font-size: 1.3rem;
+  line-height: 30px;
+  margin: 0 0 1.2rem 0;
+  text-align: justify;
+  color: #222 !important;
+}
+
+.skills-text h3,
+.project-text h3 {
   font-size: 22px;
   color: #222 !important;
   width: 100%;
@@ -369,7 +517,12 @@
   margin: 0 0 1.2rem 0;
 }
 
-.skills-description-text-intro {
+.project-text-main-intro {
+  margin: 0 0 1.2rem 0;
+}
+
+.skills-description-text-intro,
+.project-description-text-intro {
   margin: 10px 0 20px 0;
 }
 
@@ -469,7 +622,15 @@
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  vertical-align: middle;
+  vertical-align: bottom;
+  flex-shrink: 0;
+}
+
+.bullet-header {
+  width: auto;
+  height: 60px;
+  margin-right: 8px;
+  vertical-align: bottom;
   flex-shrink: 0;
 }
 
@@ -516,24 +677,46 @@
 
 /* About Learn More */
 .about-learnmore-container {
+  flex: 1 1 20%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  gap: 20px;
+  gap: 1rem;
+  height: 100%;
+  justify-content: center;
 }
 
 .about-learnmore {
+  width: 100%;
+  min-height: min-content;
+  max-height: 100%;
+  margin: auto 0 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-learnmore-connect,
+.about-learnmore-resume {
   width: 250px;
   height: 50px;
   border-radius: 10px;
   box-sizing: border-box;
   text-align: center;
   overflow: hidden;
-  margin: 50px 0 40px 0;
+  margin: 2rem 0 0 0;
 }
+
+/*
+.about-learnmore-connect {
+  margin: 2rem 0 0 0;
+}
+
+.about-learnmore-resume {
+  margin: 2rem 0 0 0;
+}
+*/
 
 .about-learnmore-button {
   display: flex;
@@ -667,6 +850,48 @@
   margin-top: 5px;
   font-size: 12px;
   color: #666;
+}
+
+.resume-download {
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  margin: 10px 0 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resume-download-button:hover,
+.resume-download-button:focus {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(69, 160, 73, 0.6);
+  outline: none;
+}
+
+.resume-download-button:focus-visible {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
 }
 
 @keyframes scroll {
