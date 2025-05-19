@@ -1,21 +1,33 @@
 {
   "files": {
-    "main.css": "/sara-portfolio/static/css/main.2834d0fa.css",
-    "main.js": "/sara-portfolio/static/js/main.3828a51c.js",
+    "main.css": "/sara-portfolio/static/css/main.b48fa916.css",
+    "main.js": "/sara-portfolio/static/js/main.f6f868b3.js",
+    "static/media/project-3MOralCarePortal.mp4": "/sara-portfolio/static/media/project-3MOralCarePortal.de0d793d6c7cd0fd6535.mp4",
     "static/media/sara-profile.webp": "/sara-portfolio/static/media/sara-profile.8a3433dc9a2c251b0232.webp",
+    "static/media/project-knowmycanada.svg": "/sara-portfolio/static/media/project-knowmycanada.de54be18d002427fec036cea717a8c06.svg",
+    "static/media/project-lufkin.svg": "/sara-portfolio/static/media/project-lufkin.d1f8d86aad9415871c0809ffe7b4fab5.svg",
     "static/media/solobeardrop-nobg-hover.svg": "/sara-portfolio/static/media/solobeardrop-nobg-hover.e951cfeab1f625f6f87e17d33b2a45db.svg",
     "static/media/solobeardrop-nobg.svg": "/sara-portfolio/static/media/solobeardrop-nobg.8780a710efddfd42c9eb46fbaabb7eed.svg",
+    "static/media/logo-sara.svg": "/sara-portfolio/static/media/logo-sara.779fd20fc40e8d856a434ef7725fa24e.svg",
+    "static/media/bullet-skills.svg": "/sara-portfolio/static/media/bullet-skills.22ebe50402c36ce497123051b3e5a562.svg",
+    "static/media/project-HRMS.svg": "/sara-portfolio/static/media/project-HRMS.faba0c2f619e085933a83e1a8f5595b3.svg",
+    "static/media/project-3MOralCarePortal.svg": "/sara-portfolio/static/media/project-3MOralCarePortal.d2aefe7b3ee384b7980768525620ba2e.svg",
+    "static/media/bullet-projects.svg": "/sara-portfolio/static/media/bullet-projects.5ef473c12b3207d40bbc32ebda4bbb63.svg",
+    "static/media/bullet-contact.svg": "/sara-portfolio/static/media/bullet-contact.a481993fd7956e8efae5679ea7c1a119.svg",
+    "static/media/bullet-about.svg": "/sara-portfolio/static/media/bullet-about.dc9e2d66dee9acd8f7f365a4ae7091d0.svg",
+    "static/media/bullet-resume.svg": "/sara-portfolio/static/media/bullet-resume.c9a3305257f3a966a71bb97577658c1b.svg",
     "static/media/list-icon-blk.svg": "/sara-portfolio/static/media/list-icon-blk.766e1251dbbe1cd83ff56023525b43d7.svg",
+    "static/media/project-hakuna.png": "/sara-portfolio/static/media/project-hakuna.7fddf6e3b0ec5b0bf50d.png",
     "static/media/logo-linkedin.png": "/sara-portfolio/static/media/logo-linkedin.e1deb407b2bc1e673912.png",
     "static/media/logo-github.png": "/sara-portfolio/static/media/logo-github.6ae876b7ebb2b2739034.png",
     "static/media/logo-facebook.png": "/sara-portfolio/static/media/logo-facebook.7a0040e84b8a48dd20bd.png",
     "static/media/gotop.png": "/sara-portfolio/static/media/gotop.bed36f38dd9edb1b3791.png",
     "index.html": "/sara-portfolio/index.html",
-    "main.2834d0fa.css.map": "/sara-portfolio/static/css/main.2834d0fa.css.map",
-    "main.3828a51c.js.map": "/sara-portfolio/static/js/main.3828a51c.js.map"
+    "main.b48fa916.css.map": "/sara-portfolio/static/css/main.b48fa916.css.map",
+    "main.f6f868b3.js.map": "/sara-portfolio/static/js/main.f6f868b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.2834d0fa.css",
-    "static/js/main.3828a51c.js"
+    "static/css/main.b48fa916.css",
+    "static/js/main.f6f868b3.js"
   ]
 }
