@@ -9,6 +9,12 @@ import BulletSkills from "../assets/images/bullet-skills.svg";
 import BulletResume from "../assets/images/bullet-resume.svg";
 import BulletProjects from "../assets/images/bullet-projects.svg";
 import BulletContact from "../assets/images/bullet-contact.svg";
+import ProjectVideo3M from "../assets/videos/project-3MOralCarePortal.mp4";
+import ProjectVideo3MThumbnail from "../assets/images/project-3MOralCarePortal.svg";
+import ProjectLufkin from "../assets/images/project-lufkin.svg";
+import ProjectHakuna from "../assets/images/project-hakuna.png";
+import ProjectHRMS from "../assets/images/project-HRMS.svg";
+import ProjectKnowmycanada from "../assets/images/project-knowmycanada.svg";
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -425,12 +431,16 @@ const Hero = () => {
             <div className="about-text">
               <ul className="about-list">
                 <li className="about-text-intro">
-                  I am <span className="bold-only">Saraswathi Sakthikumar</span>
-                  , but you can call me <span className="bold-only">Sara!</span>
+                  I am{" "}
+                  <span className="bold-and-change-color-blue">
+                    Saraswathi Sakthikumar
+                  </span>
+                  , but you can call me{" "}
+                  <span className="bold-and-change-color-blue">Sara!</span>
                 </li>
                 <li className="about-text-intro">
                   I’m a{" "}
-                  <span className="bold-only">
+                  <span className="bold-and-change-color-blue">
                     Full Stack Developer and Systems Analyst
                   </span>{" "}
                   based in Edmonton, passionate about building smarter,
@@ -438,15 +448,19 @@ const Hero = () => {
                 </li>
                 <li className="about-text-intro">
                   I specialize in technologies like{" "}
-                  <span className="bold-only">.NET, JavaScript, and React</span>
+                  <span className="bold-and-change-color-blue">
+                    .NET, JavaScript, and React
+                  </span>
                   , and I thrive on continuously expanding my skillset to stay
                   ahead in a fast-paced tech landscape.
                 </li>
                 <li className="about-text-intro">
                   With over{" "}
-                  <span className="bold-only">{yearsOfExperience} years</span>{" "}
+                  <span className="bold-and-change-color-blue">
+                    {yearsOfExperience} years
+                  </span>{" "}
                   of experience in{" "}
-                  <span className="bold-only">
+                  <span className="bold-and-change-color-blue">
                     Web development and Database Management
                   </span>
                   , I bring a problem-solving mindset to every project -
@@ -518,26 +532,42 @@ const Hero = () => {
                       <div className="skills-description-text-intro">
                         Proficient in developing robust and scalable backend
                         systems using{" "}
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           C# (.NET), Java, and Node.js
                         </span>
                         . Skilled in creating{" "}
-                        <span className="bold-only">RESTful APIs</span>,
-                        integrating microservices, and ensuring secure,
+                        <span className="bold-and-change-color-blue">
+                          RESTful APIs
+                        </span>
+                        , integrating microservices, and ensuring secure,
                         high-performance server-side applications. Expert in
                         building responsive, accessible user interfaces with
-                        <span className="bold-only"> ReactJS</span> and modern
-                        <span className="bold-only"> JavaScript</span>. Focused
-                        on delivering high-performance frontend solutions with
-                        strong UX/UI principles and seamless API integration.
+                        <span className="bold-and-change-color-blue">
+                          {" "}
+                          ReactJS
+                        </span>{" "}
+                        and modern
+                        <span className="bold-and-change-color-blue">
+                          {" "}
+                          JavaScript
+                        </span>
+                        . Focused on delivering high-performance frontend
+                        solutions with strong{" "}
+                        <span className="bold-and-change-color-blue">
+                          UX/UI
+                        </span>{" "}
+                        principles and seamless API integration.
                       </div>
+
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">C#, .NET : </span>
+                        <span className="bold-and-change-color-purple">
+                          C#, .NET:{" "}
+                        </span>
                         ASP.NET Core, Web APIs, Entity Framework
                         <br className="margin-bottom-ten" />
                         <img
@@ -545,7 +575,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Java : </span>
+                        <span className="bold-and-change-color-purple">
+                          Java:{" "}
+                        </span>
                         Spring Boot, REST APIs, Microservices
                         <br className="margin-bottom-ten" />
                         <img
@@ -553,7 +585,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Node.js : </span>
+                        <span className="bold-and-change-color-purple">
+                          Node.js:{" "}
+                        </span>
                         RESTful APIs, Express.js, event-driven architecture
                         <br className="margin-bottom-ten" />
                         <img
@@ -561,7 +595,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Reactjs : </span>
+                        <span className="bold-and-change-color-purple">
+                          Reactjs:{" "}
+                        </span>
                         Hooks, Context API, performance optimization
                         <br className="margin-bottom-ten" />
                         <img
@@ -569,7 +605,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">JavaScript : </span>
+                        <span className="bold-and-change-color-purple">
+                          JavaScript:{" "}
+                        </span>
                         Modern ES6+, DOM manipulation, async programming
                       </span>
                     </p>
@@ -620,22 +658,27 @@ const Hero = () => {
                     <p className="skills-description-text">
                       <div className="skills-description-text-intro">
                         Hands-on experience with{" "}
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           Microsoft Azure, AWS, and Google Cloud Platform
                         </span>{" "}
                         for deploying, scaling, and monitoring cloud-native
                         solutions. Proficient in{" "}
-                        <span className="bold-only">Docker </span> for
-                        containerization and cloud service orchestration using
-                        CI/CD pipelines.
+                        <span className="bold-and-change-color-blue">
+                          Docker{" "}
+                        </span>{" "}
+                        for containerization and cloud service orchestration
+                        using CI/CD pipelines.
                       </div>
+
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Microsoft Azure : </span>
+                        <span className="bold-and-change-color-purple">
+                          Microsoft Azure:{" "}
+                        </span>
                         Deployment, App Services, Azure Functions
                         <br className="margin-bottom-ten" />
                         <img
@@ -643,7 +686,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">AWS : </span>
+                        <span className="bold-and-change-color-purple">
+                          AWS:{" "}
+                        </span>
                         EC2, S3, Lambda, IAM, API Gateway
                         <br className="margin-bottom-ten" />
                         <img
@@ -651,8 +696,8 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">
-                          Google Cloud Platform :{" "}
+                        <span className="bold-and-change-color-purple">
+                          Google Cloud Platform:{" "}
                         </span>
                         Compute Engine, Firebase, Cloud Function
                         <br className="margin-bottom-ten" />
@@ -661,7 +706,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Docker : </span>
+                        <span className="bold-and-change-color-purple">
+                          Docker:{" "}
+                        </span>
                         Containerization for portable and consistent
                         environments
                       </span>
@@ -708,7 +755,7 @@ const Hero = () => {
                     <p className="skills-description-text">
                       <div className="skills-description-text-intro">
                         Experience in integrating and customizing
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           {" "}
                           Microsoft Dynamics 365 ERP{" "}
                         </span>{" "}
@@ -716,8 +763,11 @@ const Hero = () => {
                         finance, operations, and supply chain, enabling better
                         data-driven decisions across enterprises. Implemented
                         and customized CRM systems such as{" "}
-                        <span className="bold-only">Salesforce</span> and{" "}
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
+                          Salesforce
+                        </span>{" "}
+                        and{" "}
+                        <span className="bold-and-change-color-blue">
                           Microsoft Dynamics CRM
                         </span>{" "}
                         to improve customer engagement, automate sales
@@ -729,8 +779,8 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">
-                          Microsoft Dynamics 365 :{" "}
+                        <span className="bold-and-change-color-purple">
+                          Microsoft Dynamics 365:{" "}
                         </span>
                         Customizations, Power Platform integration, workflows
                         <br className="margin-bottom-ten" />
@@ -739,7 +789,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Salesforce : </span>
+                        <span className="bold-and-change-color-purple">
+                          Salesforce:{" "}
+                        </span>
                         Apex, Lightning Components, CRM customization
                       </span>
                     </p>
@@ -786,7 +838,7 @@ const Hero = () => {
                       <div className="skills-description-text-intro">
                         Adept at transforming raw data into meaningful insights
                         using{" "}
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           {" "}
                           Power BI, SSRS, and Active Reports.{" "}
                         </span>
@@ -800,7 +852,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Power BI : </span>
+                        <span className="bold-and-change-color-purple">
+                          Power BI:{" "}
+                        </span>
                         Data modeling, visualization, and custom dashboards
                         <br className="margin-bottom-ten" />
                         <img
@@ -808,8 +862,8 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">
-                          SSRS (SQL Server Reporting Services) :{" "}
+                        <span className="bold-and-change-color-purple">
+                          SSRS (SQL Server Reporting Services):{" "}
                         </span>
                         Pixel-perfect paginated reports, subscriptions, and
                         enterprise-level reporting
@@ -819,7 +873,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Active Report : </span>
+                        <span className="bold-and-change-color-purple">
+                          Active Report:{" "}
+                        </span>
                         Lightweight, embeddable reports for web applications,
                         enabling offline viewing and customizable UI components
                       </span>
@@ -864,11 +920,17 @@ const Hero = () => {
                     <p className="skills-description-text">
                       <div className="skills-description-text-intro">
                         Experienced with enterprise-level platforms like
-                        <span className="bold-only"> SharePoint </span>
+                        <span className="bold-and-change-color-blue">
+                          {" "}
+                          SharePoint{" "}
+                        </span>
                         and
-                        <span className="bold-only"> Office 365</span>, enabling
-                        seamless collaboration, content organization, and
-                        document lifecycle management.
+                        <span className="bold-and-change-color-blue">
+                          {" "}
+                          Office365
+                        </span>
+                        , enabling seamless collaboration, content organization,
+                        and document lifecycle management.
                       </div>
                       <span className="skills-description-text-list">
                         <img
@@ -876,7 +938,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">SharePoint : </span>
+                        <span className="bold-and-change-color-purple">
+                          SharePoint:{" "}
+                        </span>
                         Custom apps, document management, automation
                         <br className="margin-bottom-ten" />
                         <img
@@ -884,7 +948,9 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">Office 365 : </span>
+                        <span className="bold-and-change-color-purple">
+                          Office 365:{" "}
+                        </span>
                         Graph API, Outlook, SharePoint, and Teams integrations
                       </span>
                     </p>
@@ -930,25 +996,28 @@ const Hero = () => {
                       <div className="skills-description-text-intro">
                         Actively working with cutting-edge technologies
                         including using
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           {" "}
                           Artificial Intelligence (AI){" "}
                         </span>
                         for predictive analytics and
-                        <span className="bold-only">
+                        <span className="bold-and-change-color-blue">
                           {" "}
                           Internet of Things (IoT){" "}
                         </span>
                         for building smart, connected applications that leverage
                         real-time data.
                       </div>
+
                       <span className="skills-description-text-list">
                         <img
                           src={IconBullet}
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">AI Integration : </span>
+                        <span className="bold-and-change-color-purple">
+                          AI Integration:{" "}
+                        </span>
                         Natural Language Processing, Image Recognition, and
                         Intelligent Automation
                         <br className="margin-bottom-ten" />
@@ -957,8 +1026,8 @@ const Hero = () => {
                           alt=""
                           className="icon-bullet-left"
                         />
-                        <span className="bold-only">
-                          IoT (Internet of Things) :{" "}
+                        <span className="bold-and-change-color-purple">
+                          IoT:{" "}
                         </span>
                         Device integration, Telemetry, Azure IoT Hub
                       </span>
@@ -988,158 +1057,315 @@ const Hero = () => {
       {/* Projects Section */}
       <section id="projects" className="sections">
         <div className="project-inner">
-          <div className="project-content-main-body">
-            <div className="project-content-center">
-              <div className="project-content">
-                <div className="project-text-main">
-                  <div className="project-text-main-stickyside">
-                    <div className="project-text-main-stickyside-content">
-                      <h2 id="project-header">
-                        <img
-                          src={BulletProjects}
-                          alt=""
-                          className="bullet-header"
-                        />
-                        Selected works
-                      </h2>
-                      {/* General  */}
-                      <ul className="project-text-main-intro">
-                        <li>
-                          As a Full Stack Developer and Systems Analyst, I’ve
-                          led and contributed to diverse projects ranging from
-                          enterprise applications to creative web-based
-                          solutions. My work spans across industries such as
-                          healthcare, manufacturing, HR, and banking—delivering
-                          scalable, secure, and user-friendly systems.
-                        </li>
-                        <li>
-                          Each project reflects my expertise in front-end and
-                          back-end development using technologies like .NET,
-                          React, JavaScript, C#, Spring Boot, SQL, and cloud
-                          platforms such as Azure and AWS. I specialize in
-                          translating complex business requirements into
-                          elegant, maintainable code and collaborating
-                          cross-functionally to ensure seamless integrations,
-                          efficient workflows, and high-performance delivery.
-                        </li>
-                        <li>
-                          Whether you're a recruiter evaluating my technical
-                          strengths or a client seeking reliable and modern
-                          software solutions, these projects showcase my ability
-                          to deliver robust, data-driven, and future-proof
-                          applications tailored to business goals.
-                        </li>
-                      </ul>
+          <h2 id="project-header">
+            <img src={BulletProjects} alt="" className="bullet-header" />
+            Selected works
+          </h2>
+
+          <div className="project-content">
+            <div className="project-text-main">
+              <ul className="project-text-main-intro">
+                <li>
+                  I take pride in building robust, user-focused applications
+                  that solve real-world problems across diverse industries. From
+                  enterprise-grade portals for global corporations to creative
+                  and engaging side projects, each solution showcases my passion
+                  for{" "}
+                  <span className="bold-and-change-color-blue">
+                    Clean architecture
+                  </span>
+                  ,{" "}
+                  <span className="bold-and-change-color-blue">
+                    Efficient coding
+                  </span>
+                  , and{" "}
+                  <span className="bold-and-change-color-blue">
+                    Scalable development
+                  </span>
+                  .
+                </li>
+                <li>
+                  As a{" "}
+                  <span className="bold-and-change-color-blue">
+                    Full Stack Developer
+                  </span>{" "}
+                  and{" "}
+                  <span className="bold-and-change-color-blue">
+                    Systems Analyst
+                  </span>
+                  , I have led and contributed to a variety of impactful
+                  projects in sectors such as{" "}
+                  <span className="bold-and-change-color-blue">Healthcare</span>
+                  ,{" "}
+                  <span className="bold-and-change-color-blue">
+                    Manufacturing, HR
+                  </span>
+                  , and{" "}
+                  <span className="bold-and-change-color-blue">Banking</span> -
+                  delivering{" "}
+                  <span className="bold-and-change-color-blue">Secure</span>,{" "}
+                  <span className="bold-and-change-color-blue">Scalable</span>,
+                  and{" "}
+                  <span className="bold-and-change-color-blue">
+                    User-friendly{" "}
+                  </span>
+                  systems tailored to both business and user needs.
+                </li>
+                <li className="remove-margin">
+                  Whether you’re a{" "}
+                  <span className="bold-and-change-color-blue">recruiter</span>{" "}
+                  assessing technical capabilities or a{" "}
+                  <span className="bold-and-change-color-blue">client</span>{" "}
+                  looking for dependable, forward-thinking solutions, the
+                  following project highlights demonstrate my ability to deliver{" "}
+                  <span className="bold-and-change-color-blue">Robust</span>{" "}
+                  <span className="bold-and-change-color-blue">
+                    and Data-driven applications
+                  </span>{" "}
+                  that align with business goals and create meaningful digital
+                  experiences.
+                </li>
+              </ul>
+            </div>
+
+            <div className="project-text">
+              <div className="project-text-group">
+                {/* Project - 3M Oral Care */}
+                <div className="project-text-box">
+                  <div className="project-text-heading">
+                    <h3>
+                      <span className="bold-and-change-color-red">
+                        Oral Care Portal - 3M
+                      </span>
+                    </h3>
+                    <p className="project-text-subhead">
+                      Enterprise Web Solution for Healthcare Management
+                    </p>
+                  </div>
+                  <div className="project-text-container">
+                    <div className="project-description">
+                      <div className="project-description-video-image">
+                        <video
+                          width="100%"
+                          height="auto"
+                          controls
+                          className="project-video"
+                          src={ProjectVideo3M}
+                          poster={ProjectVideo3MThumbnail}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <p className="project-description-text">
+                        <div className="project-description-text">
+                          <div className="project-description-text-intro">
+                            Developed a secure, scalable internal portal for
+                            3M’s Oral Care division, enabling seamless data
+                            access for sales, clinical, and administrative
+                            teams. Integrated data analytics, user role
+                            management, and document handling.
+                          </div>
+                          <span className="bold-and-change-color-green margin-top-ten display-flex">
+                            Tech Stack:{" "}
+                          </span>
+                          <img
+                            src={IconBullet}
+                            alt=""
+                            className="icon-bullet-left"
+                          />
+                          .NET, React, SQL Server, Azure, HTML, CSS, Bootstrap,
+                          React, Spring, MySQL
+                        </div>
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="project-text">
-                  {/* Skills - Software Programming */}
-                  <div className="skills-text-box">
-                    <div className="skills-text-heading">
-                      <ul className="skills-text-list">
-                        <li className="icon-bullet">
-                          <img
-                            src={getIconByName("Backend")?.url}
-                            alt=""
-                            className="icon-left"
-                          />
-                          <h3>
-                            <span className="bold-only">
-                              Software Programming
-                            </span>
-                          </h3>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="skills-text-container">
-                      <div className="skills-description">
-                        <p className="skills-description-text">
-                          <div className="skills-description-text-intro">
-                            Proficient in developing robust and scalable backend
-                            systems using{" "}
-                            <span className="bold-only">
-                              C# (.NET), Java, and Node.js
-                            </span>
-                            . Skilled in creating{" "}
-                            <span className="bold-only">RESTful APIs</span>,
-                            integrating microservices, and ensuring secure,
-                            high-performance server-side applications. Expert in
-                            building responsive, accessible user interfaces with
-                            <span className="bold-only"> ReactJS</span> and
-                            modern
-                            <span className="bold-only"> JavaScript</span>.
-                            Focused on delivering high-performance frontend
-                            solutions with strong UX/UI principles and seamless
-                            API integration.
+                {/* Project - Lufkin Management System */}
+                <div className="project-text-box">
+                  <div className="project-text-heading">
+                    <h3>
+                      <span className="bold-and-change-color-red">
+                        Management System - LUFKIN
+                      </span>
+                    </h3>
+                    <p className="project-text-subhead">
+                      Asset and Operations Tracking System for Oilfield Services
+                    </p>
+                  </div>
+                  <div className="project-text-container">
+                    <div className="project-description">
+                      <div className="project-description-video-image">
+                        <a
+                          href="https://www.lufkin.com/solutions-services/srod/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src={ProjectLufkin} alt="" />
+                        </a>
+                      </div>
+                      <p className="project-description-text">
+                        <div className="project-description-text">
+                          <div className="project-description-text-intro">
+                            Built a complete management solution for industrial
+                            operations, streamlining asset tracking, maintenance
+                            logs, reporting, and user management across LUFKIN
+                            facilities.
                           </div>
-                          <span className="skills-description-text-list">
-                            <img
-                              src={IconBullet}
-                              alt=""
-                              className="icon-bullet-left"
-                            />
-                            <span className="bold-only">C#, .NET : </span>
-                            ASP.NET Core, Web APIs, Entity Framework
-                            <br className="margin-bottom-ten" />
-                            <img
-                              src={IconBullet}
-                              alt=""
-                              className="icon-bullet-left"
-                            />
-                            <span className="bold-only">Java : </span>
-                            Spring Boot, REST APIs, Microservices
-                            <br className="margin-bottom-ten" />
-                            <img
-                              src={IconBullet}
-                              alt=""
-                              className="icon-bullet-left"
-                            />
-                            <span className="bold-only">Node.js : </span>
-                            RESTful APIs, Express.js, event-driven architecture
-                            <br className="margin-bottom-ten" />
-                            <img
-                              src={IconBullet}
-                              alt=""
-                              className="icon-bullet-left"
-                            />
-                            <span className="bold-only">Reactjs : </span>
-                            Hooks, Context API, performance optimization
-                            <br className="margin-bottom-ten" />
-                            <img
-                              src={IconBullet}
-                              alt=""
-                              className="icon-bullet-left"
-                            />
-                            <span className="bold-only">JavaScript : </span>
-                            Modern ES6+, DOM manipulation, async programming
+                          <span className="bold-and-change-color-green margin-top-ten display-flex">
+                            Tech Stack:{" "}
                           </span>
-                        </p>
-                      </div>
+                          <img
+                            src={IconBullet}
+                            alt=""
+                            className="icon-bullet-left"
+                          />
+                          ASP.NET Core, HTML, CSS, JavaScript, C#, Microsoft SQL
+                          Server
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                      <div className="skills-logos">
-                        {techItems
-                          .filter((item) =>
-                            [
-                              "CSharp",
-                              "Net",
-                              "ReactJs",
-                              "NodeJs",
-                              "Java",
-                              "JavaScript",
-                            ].includes(item.name)
-                          )
-                          .map((item, index) => (
-                            <img
-                              key={index}
-                              src={item.url}
-                              alt={""}
-                              title={item.name}
-                              className="skills-logo-img"
-                            />
-                          ))}
+                {/* Project - Hakuna Matada Bank */}
+                <div className="project-text-box">
+                  <div className="project-text-heading">
+                    <h3>
+                      <span className="bold-and-change-color-red">
+                        Hakuna Matada Bank
+                      </span>
+                    </h3>
+                    <p className="project-text-subhead">
+                      Modern Banking App UI (Inspired by Kotak Mahindra Bank)
+                    </p>
+                  </div>
+                  <div className="project-text-container">
+                    <div className="project-description">
+                      <div className="project-description-video-image">
+                        <a
+                          href="https://github.com/Sarasakthi/Hakuna-Matata-Bank"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src={ProjectHakuna} alt="" />
+                        </a>
                       </div>
+                      <p className="project-description-text">
+                        <div className="project-description-text">
+                          <div className="project-description-text-intro">
+                            A React-based replica of a modern banking dashboard
+                            focusing on user interface and interaction. Includes
+                            account summaries, transaction history, fund
+                            transfers, and responsive design.
+                          </div>
+                          <span className="bold-and-change-color-green margin-top-ten display-flex">
+                            Tech Stack:{" "}
+                          </span>
+                          <img
+                            src={IconBullet}
+                            alt=""
+                            className="icon-bullet-left"
+                          />
+                          React, Tailwind CSS, JavaScript, Firebase
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Project - HR Management System */}
+                <div className="project-text-box">
+                  <div className="project-text-heading">
+                    <h3>
+                      <span className="bold-and-change-color-red">
+                        HR Management System
+                      </span>
+                    </h3>
+                    <p className="project-text-subhead">
+                      Comprehensive Human Resources Platform
+                    </p>
+                  </div>
+                  <div className="project-text-container">
+                    <div className="project-description">
+                      <div className="project-description-video-image">
+                        <a
+                          href="https://github.com/Sarasakthi/HumanResourceMngtSystem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src={ProjectHRMS} alt="" />
+                        </a>
+                      </div>
+                      <p className="project-description-text">
+                        <div className="project-description-text">
+                          <div className="project-description-text-intro">
+                            A passion project designed and developed an
+                            end-to-end HR solution to manage employee
+                            onboarding, performance tracking, leave management,
+                            and payroll insights. Created to explore full-stack
+                            features with a hands-on approach.
+                          </div>
+                          <span className="bold-and-change-color-green margin-top-ten display-flex">
+                            Tech Stack:{" "}
+                          </span>
+                          <img
+                            src={IconBullet}
+                            alt=""
+                            className="icon-bullet-left"
+                          />
+                          React, Node.js, Express, MySQL
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Project - KnowMyCanada */}
+                <div className="project-text-box">
+                  <div className="project-text-heading">
+                    <h3>
+                      <span className="bold-and-change-color-red">
+                        KnowMyCanada
+                      </span>
+                    </h3>
+                    <p className="project-text-subhead">
+                      Trivia Quiz App with a Fun Canadian Twist
+                    </p>
+                  </div>
+                  <div className="project-text-container">
+                    <div className="project-description">
+                      <div className="project-description-video-image">
+                        <a
+                          href="https://github.com/Sarasakthi/KnowMyCanada"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src={ProjectKnowmycanada} alt="" />
+                        </a>
+                      </div>
+                      <p className="project-description-text">
+                        <div className="project-description-text">
+                          <div className="project-description-text-intro">
+                            A fun and interactive trivia quiz app that tests
+                            users on quirky, lesser-known facts about Canada.
+                            Built with Blazor and modern databases, it features
+                            timed questions, dynamic scoring, and a responsive,
+                            animated UI. Designed to be both educational and
+                            engaging for all ages.
+                          </div>
+                          <span className="bold-and-change-color-green margin-top-ten display-flex">
+                            Tech Stack:{" "}
+                          </span>
+                          <img
+                            src={IconBullet}
+                            alt=""
+                            className="icon-bullet-left"
+                          />
+                          Blazor (WebAssembly), ASP.NET Core APIs, SQL Server &
+                          Entity Framework Core, Azure App Services
+                        </div>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1187,69 +1413,85 @@ const Hero = () => {
             <img src={BulletContact} alt="" className="bullet-header" />
             Get In Touch
           </h2>
-          <div className="contact-content">
-            <p className="contact-intro">
-              Have a project in mind or want to chat? Feel free to reach out
-              using the form or contact me directly.
-            </p>
 
-            <div className="contact-content">
-              <div className="contact-info">
-                <div className="info-item">
-                  <img src="/icons/email.svg" alt="" className="info-icon" />
-                  <div>
-                    <strong>Email</strong>
-                    <p>sarasakthikumar@gmail.com</p>
-                  </div>
-                </div>
-                <div className="info-item">
-                  <img src="/icons/phone.svg" alt="" className="info-icon" />
-                  <div>
-                    <strong>Phone</strong>
-                    <p>+1 825-823-2463</p>
-                  </div>
-                </div>
-                <div className="info-item">
-                  <img src="/icons/location.svg" alt="" className="info-icon" />
-                  <div>
-                    <strong>Location</strong>
-                    <p>Edmonton, AB, Canada</p>
-                  </div>
-                </div>
+          <div className="contact-content">
+            <div className="contact-text-main">
+              <ul className="contact-text-main-intro">
+                <li>
+                  Let’s bring your ideas to life or simply have a conversation.
+                  <br />
+                  Reach out via the form or connect with me directly. I'll make
+                  sure to respond promptly.
+                </li>
+              </ul>
+            </div>
+
+            <div className="contact-divide-main">
+              <div className="contact-text-sub">
+                <ul className="contact-text-sub-intro">
+                  <li>
+                    Email:{" "}
+                    <a href="mailto:sarasakthikumar@gmail.com">
+                      sarasakthikumar@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    Phone: <a href="tel:+18258232463">+1 (825)-823-2463</a>
+                  </li>
+                  <li>Location: Edmonton, AB, Canada</li>
+                </ul>
               </div>
 
-              <div className="contact-form">
+              <div className="contact-form-group">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
                     window.location.href = "mailto:sarasakthikumar@gmail.com";
                   }}
                 >
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                  />
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="Message"
-                    required
-                  ></textarea>
-                  <button type="submit">Send Message</button>
+                  <div className="contact-form-input">
+                    <label htmlFor="name">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div className="contact-form-input">
+                    <label htmlFor="email">Your Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                  <div className="contact-form-input">
+                    <label htmlFor="subject">Subject</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+                  <div className="contact-form-input">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      placeholder="Message"
+                      required
+                    ></textarea>
+                  </div>
+                  <div className="contact-form-input">
+                    <button type="submit">Send Message</button>
+                  </div>
                 </form>
               </div>
             </div>
