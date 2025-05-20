@@ -1,3 +1,21 @@
+.weather-container {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .weather-floating-card {
+    top: auto;
+    right: auto;
+    position: relative;
+    margin: 1rem auto;
+  }
+}
+
 /* Full-screen section */
 .hero-section {
   position: relative;
@@ -128,11 +146,13 @@
 .hero-container h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
+  color: #707070;
 }
 
 .hero-container p {
   font-size: 1.2rem;
   margin-bottom: 20px;
+  color: #707070;
 }
 
 /* Button */
@@ -204,6 +224,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-direction: row;
   /*margin-bottom: 0.5rem;*/
 }
 
@@ -486,10 +507,15 @@
   margin-bottom: 1.5rem;
 }
 
+.button-contact {
+  align-items: center;
+}
+
 .contact-form-group label {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
 .contact-form-group input,
@@ -522,6 +548,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-weight: bold;
+  width: 50%;
 }
 
 .contact-form-input button:hover {
@@ -647,12 +675,12 @@
 
 .project-text-box,
 .contact-text-box {
-  flex: 1 1 40%;
-  max-width: 40%;
-  min-height: 630px;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1 1 40%;
+  max-width: 50%;
+  min-height: 630px;
+  height: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   border-radius: 20px; /*30px 0px 0 30px;*/
@@ -675,7 +703,19 @@
 
 .project-text-heading,
 .contact-text-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
   margin-bottom: 10px;
+  width: 100%;
+}
+
+.project-text-heading h3 {
+  max-width: 100%;
+  font-size: 1.3rem;
+  color: #222;
+  width: 100%;
 }
 
 .project-text-subhead,
@@ -725,11 +765,20 @@
 
 .skills-text-heading {
   margin: 0;
-  display: flex;
+  display: block;
 }
 
 .skills-text-heading .skills-text-list {
   margin: 5px 0;
+  list-style: none;
+}
+
+.skills-text-list h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+  word-break: break-word;
+  flex: 1 1 auto;
 }
 
 .skills-description {

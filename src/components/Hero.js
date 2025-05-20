@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
+import WeatherCard from "./WeatherCard";
 import BearImg from "../assets/images/solobeardrop-nobg.svg"; //beardrop-nobg.png";
 import BearImgHover from "../assets/images/solobeardrop-nobg-hover.svg"; //beardrop-nobg.png";
 import AboutProfile from "../assets/images/profile/sara-profile.webp";
@@ -341,7 +342,7 @@ const Hero = () => {
   };
 
   return (
-    <>
+    <div className="main-body">
       {/* Dark mode toggle */}
       <div className="dark-mode-toggle">
         <button
@@ -356,6 +357,10 @@ const Hero = () => {
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <canvas ref={canvasRef} className="connecting-dots" />
+        {/* Weather Card*/}
+        <div className="weather-container">
+          <WeatherCard />
+        </div>
 
         <div className="hero-wrapper">
           <div className="hero-content hero-row">
@@ -1233,7 +1238,7 @@ const Hero = () => {
                   <div className="project-text-heading">
                     <h3>
                       <span className="bold-and-change-color-red">
-                        Hakuna Matada Bank
+                        Hakuna Matata Bank
                       </span>
                     </h3>
                     <p className="project-text-subhead">
@@ -1430,15 +1435,19 @@ const Hero = () => {
               <div className="contact-text-sub">
                 <ul className="contact-text-sub-intro">
                   <li>
-                    Email:{" "}
+                    <span className="bold-only">Email</span>:{" "}
                     <a href="mailto:sarasakthikumar@gmail.com">
                       sarasakthikumar@gmail.com
                     </a>
                   </li>
                   <li>
-                    Phone: <a href="tel:+18258232463">+1 (825)-823-2463</a>
+                    <span className="bold-only">Phone</span>:{" "}
+                    <a href="tel:+18258232463">+1 (825)-823-2463</a>
                   </li>
-                  <li>Location: Edmonton, AB, Canada</li>
+                  <li>
+                    <span className="bold-only">Location</span>: Edmonton, AB,
+                    Canada
+                  </li>
                 </ul>
               </div>
 
@@ -1489,7 +1498,7 @@ const Hero = () => {
                       required
                     ></textarea>
                   </div>
-                  <div className="contact-form-input">
+                  <div className="contact-form-input button-contact">
                     <button type="submit">Send Message</button>
                   </div>
                 </form>
@@ -1498,7 +1507,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
