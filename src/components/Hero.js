@@ -357,6 +357,7 @@ const Hero = () => {
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <canvas ref={canvasRef} className="connecting-dots" />
+
         {/* Weather Card*/}
         <div className="weather-container">
           <WeatherCard />
@@ -1451,12 +1452,16 @@ const Hero = () => {
                 </ul>
               </div>
 
+              {/* Weather Card*/}
+              <div className="weather-container">
+                <WeatherCard />
+              </div>
+
               <div className="contact-form-group">
                 <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    window.location.href = "mailto:sarasakthikumar@gmail.com";
-                  }}
+                  action="https://formspree.io/f/xovdbqgo"
+                  method="POST"
+                  class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-lg"
                 >
                   <div className="contact-form-input">
                     <label htmlFor="name">Your Name</label>

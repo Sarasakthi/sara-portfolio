@@ -33,6 +33,9 @@ const Navbar = () => {
         </div>
         <ul className={`nav-links ${isMobile ? "mobile" : ""}`}>
           <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
             <a href="#about">About</a>
           </li>
           <li>
