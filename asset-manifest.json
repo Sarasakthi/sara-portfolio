@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sara-portfolio/static/css/main.3d78fb65.css",
-    "main.js": "/sara-portfolio/static/js/main.d1c9a799.js",
+    "main.css": "/sara-portfolio/static/css/main.2c8019e5.css",
+    "main.js": "/sara-portfolio/static/js/main.88417e5c.js",
     "static/media/project-3MOralCarePortal.mp4": "/sara-portfolio/static/media/project-3MOralCarePortal.de0d793d6c7cd0fd6535.mp4",
     "static/media/sara-profile.webp": "/sara-portfolio/static/media/sara-profile.8a3433dc9a2c251b0232.webp",
     "static/media/project-knowmycanada.svg": "/sara-portfolio/static/media/project-knowmycanada.de54be18d002427fec036cea717a8c06.svg",
@@ -23,11 +23,11 @@
     "static/media/logo-facebook.png": "/sara-portfolio/static/media/logo-facebook.7a0040e84b8a48dd20bd.png",
     "static/media/gotop.png": "/sara-portfolio/static/media/gotop.bed36f38dd9edb1b3791.png",
     "index.html": "/sara-portfolio/index.html",
-    "main.3d78fb65.css.map": "/sara-portfolio/static/css/main.3d78fb65.css.map",
-    "main.d1c9a799.js.map": "/sara-portfolio/static/js/main.d1c9a799.js.map"
+    "main.2c8019e5.css.map": "/sara-portfolio/static/css/main.2c8019e5.css.map",
+    "main.88417e5c.js.map": "/sara-portfolio/static/js/main.88417e5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d78fb65.css",
-    "static/js/main.d1c9a799.js"
+    "static/css/main.2c8019e5.css",
+    "static/js/main.88417e5c.js"
   ]
 }
