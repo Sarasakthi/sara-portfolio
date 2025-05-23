@@ -74,9 +74,11 @@ const WeatherCard = () => {
           <p className="weather-city">{weatherData.name}</p>
         </span>
       </div>
+      {/* 
       <div className="weather-details">
         <p className="weather-desc">{description}</p>
       </div>
+      */}
     </div>
   );
 };

@@ -22,7 +22,8 @@ const Hero = () => {
 
   // Calculate years of experience
   const currentYear = new Date().getFullYear();
-  const yearsOfExperience = currentYear - 2018;
+  const careerStartYear = 2022;
+  const yearsOfExperience = currentYear - careerStartYear;
 
   // Tech Slider
   const techItems = [
@@ -453,14 +454,6 @@ const Hero = () => {
                   scalable, and meaningful web and software solutions.
                 </li>
                 <li className="about-text-intro">
-                  I specialize in technologies like{" "}
-                  <span className="bold-and-change-color-blue">
-                    .NET, JavaScript, and React
-                  </span>
-                  , and I thrive on continuously expanding my skillset to stay
-                  ahead in a fast-paced tech landscape.
-                </li>
-                <li className="about-text-intro">
                   With over{" "}
                   <span className="bold-and-change-color-blue">
                     {yearsOfExperience} years
@@ -469,13 +462,19 @@ const Hero = () => {
                   <span className="bold-and-change-color-blue">
                     Web development and Database Management
                   </span>
-                  , I bring a problem-solving mindset to every project -
+                  . I bring a problem-solving mindset to every project -
                   transforming complex requirements into clean, high-performance
                   solutions.
                 </li>
                 <li className="about-text-intro">
-                  I’m a firm believer in lifelong learning and the power of
-                  technology to create real impact.
+                  I specialize in technologies like{" "}
+                  <span className="bold-and-change-color-blue">
+                    .NET, JavaScript, and React
+                  </span>
+                  , and I thrive on continuously expanding my skillset to stay
+                  ahead in a fast-paced tech landscape. I’m a firm believer in
+                  lifelong learning and the power of technology to create real
+                  impact.
                 </li>
                 <li className="about-text-intro">
                   When I’m not coding, you’ll find me reading, staying active,
